@@ -2,6 +2,9 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+homeassistant:
+  customize: !include customize.yaml
+
 # Text to speech
 tts:
   - platform: google_translate
@@ -63,3 +66,60 @@ panel_iframe:
     title: Home Control
     icon: mdi:playlist-check
     url: http://nas.richardn.ca/clean-home/
+
+binary_sensor:
+  - platform: ping
+    host: 192.168.0.64
+    count: 2
+    scan_interval: 60
+    name: Printer
+  - platform: ping
+    host: 192.168.0.100
+    count: 2
+    scan_interval: 60
+    name: ubuntu-db
+  - platform: ping
+    host: 192.168.0.67
+    count: 2
+    scan_interval: 60
+    name: bedroom-fan-plug
+  - platform: ping
+    host: 192.168.0.127
+    count: 2
+    scan_interval: 60
+    name: hue-hub
+  - platform: ping
+    host: 192.168.0.101
+    count: 2
+    scan_interval: 60
+    name: ubuntu-apps1
+  - platform: ping
+    host: 192.168.0.213
+    count: 2
+    scan_interval: 60
+    name: lounge-ghome
+  - platform: ping
+    host: 192.168.0.200
+    count: 2
+    scan_interval: 60
+    name: sonoff-rf
+  - platform: ping
+    host: 192.168.0.50
+    count: 2
+    scan_interval: 60
+    name: nas
+  - platform: ping
+    host: 192.168.0.79
+    count: 2
+    scan_interval: 60
+    name: rn-gamer
+  - platform: ping
+    host: 192.168.0.68
+    count: 2
+    scan_interval: 60
+    name: richard-ipad
+  - platform: ping
+    host: 192.168.0.19
+    count: 2
+    scan_interval: 60
+    name: sam-ghome-mini

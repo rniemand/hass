@@ -1,0 +1,32 @@
+binary_sensor.printer:
+  icon: 'mdi:printer'
+
+binary_sensor.ubuntu_db:
+  icon: 'mdi:database'
+
+binary_sensor.bedroom_fan_plug:
+  icon: 'mdi:power-plug'
+
+binary_sensor.hue_hub:
+  icon: 'mdi:lightbulb-group-outline'
+
+binary_sensor.ubuntu_apps1:
+  icon: 'mdi:home-assistant'
+
+binary_sensor.lounge_ghome:
+  icon: 'mdi:google-home'
+
+binary_sensor.sonoff_rf:
+  icon: 'mdi:radio'
+
+binary_sensor.nas:
+  icon: 'mdi:sd'
+
+binary_sensor.rn_gamer:
+  icon: 'mdi:desktop-tower'
+
+binary_sensor.richard_ipad:
+  icon: 'mdi:tablet-ipad'
+
+binary_sensor.sam_ghome_mini:
+  icon: 'mdi:google-home'
