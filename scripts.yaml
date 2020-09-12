@@ -1,0 +1,13 @@
+restart_tv:
+  alias: Restart TV
+  mode: single
+  sequence:
+  - device_id: c99abbfa752341089ecc3fafb484f7a4
+    domain: switch
+    entity_id: switch.tv_plug
+    type: turn_off
+  - delay: '5'
+  - device_id: c99abbfa752341089ecc3fafb484f7a4
+    domain: switch
+    entity_id: switch.tv_plug
+    type: turn_on

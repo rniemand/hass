@@ -20,7 +20,8 @@ recorder:
 tplink:
   discovery: false
   switch:
-    - host: !secret bedroom_switch_fan
+    - host: 192.168.0.67
+    - host: 192.168.0.77
 
 mqtt:
   broker: !secret mqtt_host

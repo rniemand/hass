@@ -54,3 +54,9 @@ light.spare_room:
 
 light.office_light:
   icon: 'mdi:briefcase-outline'
+
+switch.bedroom_fan:
+  icon: 'mdi:fan-off'
+
+switch.tv_plug:
+  icon: 'mdi:television-classic-off'
