@@ -30,3 +30,27 @@ binary_sensor.richard_ipad:
 
 binary_sensor.sam_ghome_mini:
   icon: 'mdi:google-home'
+
+light.hue_white_lamp_1:
+  icon: 'mdi:desk'
+
+light.dining_lamp:
+  icon: 'mdi:food-drumstick-outline'
+
+light.lounge_lamp:
+  icon: 'mdi:television'
+
+light.external_lights:
+  icon: 'mdi:home'
+
+light.master_bedroom:
+  icon: 'mdi:bed'
+
+light.sam_s_light:
+  icon: 'mdi:baby-carriage'
+
+light.spare_room:
+  icon: 'mdi:one-up'
+
+light.office_light:
+  icon: 'mdi:briefcase-outline'
