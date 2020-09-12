@@ -1,0 +1,65 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
+recorder:
+  db_url: !secret mysql_connection
+
+tplink:
+  discovery: false
+  switch:
+    - host: !secret bedroom_switch_fan
+
+mqtt:
+  broker: !secret mqtt_host
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+
+sabnzbd:
+  api_key: !secret sabnzbd_apikey
+  host: !secret sabnzbd_host
+  port: !secret sabnzbd_port
+  sensors:
+    - current_status
+    - speed
+    - queue_size
+    - queue_remaining
+    - queue_count
+    - day_size
+    - week_size
+    - month_size
+    - total_size
+
+sensor:
+  - platform: radarr
+    api_key: !secret radarr_apikey
+    host: !secret radarr_host
+    port: !secret radarr_port
+    monitored_conditions:
+      - upcoming
+      - movies
+      - status
+    days: 2
+
+  - platform: worldclock
+    time_zone: Africa/Johannesburg
+    name: Durban
+      
+panel_iframe:
+  blog:
+    title: Home Control
+    icon: mdi:playlist-check
+    url: http://nas.richardn.ca/clean-home/
