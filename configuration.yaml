@@ -17,6 +17,20 @@ scene: !include scenes.yaml
 recorder:
   db_url: !secret mysql_connection
 
-# weather:
-#   - platform: darksky
-#     api_key: !secret darksky_apikey
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
+
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.0.66
+    - host: 192.168.0.78
+
+speedtestdotnet:
+  scan_interval:
+    minutes: 15
+
+sensor:
+  - platform: worldclock
+    time_zone: Africa/Johannesburg
