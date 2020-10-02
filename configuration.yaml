@@ -56,6 +56,11 @@ sabnzbd:
     - month_size
     - total_size
 
+# https://www.home-assistant.io/integrations/speedtestdotnet/
+speedtestdotnet:
+  scan_interval:
+    minutes: 15
+
 # tplink:
 #   discovery: false
 #   switch:
