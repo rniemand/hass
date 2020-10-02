@@ -18,6 +18,13 @@ default_config:
 recorder:
   db_url: !secret mysql_connection
 
+# https://www.home-assistant.io/integrations/logger/
+logger:
+  default: info
+  logs:
+    homeassistant.setup: warning
+    homeassistant.loader: warning
+
 # weather:
 #   - platform: darksky
 #     api_key: !secret darksky_apikey
