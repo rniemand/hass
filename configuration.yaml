@@ -1,37 +1,37 @@
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
-api:
+# # api:
 
-# homeassistant:
-#   customize: !include customize.yaml
+# # homeassistant:
+# #   customize: !include customize.yaml
 
-# Text to speech
-tts:
-  - platform: google_translate
+# # Text to speech
+# tts:
+#   - platform: google_translate
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+# group: !include groups.yaml
+# automation: !include automations.yaml
+# script: !include scripts.yaml
+# scene: !include scenes.yaml
 
 recorder:
   db_url: !secret mysql_connection
 
-weather:
-  - platform: darksky
-    api_key: !secret darksky_apikey
+# weather:
+#   - platform: darksky
+#     api_key: !secret darksky_apikey
 
-tplink:
-  discovery: false
-  switch:
-    - host: 192.168.0.66
-    - host: 192.168.0.78
+# tplink:
+#   discovery: false
+#   switch:
+#     - host: 192.168.0.66
+#     - host: 192.168.0.78
 
-speedtestdotnet:
-  scan_interval:
-    minutes: 15
+# speedtestdotnet:
+#   scan_interval:
+#     minutes: 15
 
-sensor:
-  - platform: worldclock
-    time_zone: Africa/Johannesburg
+# sensor:
+#   - platform: worldclock
+#     time_zone: Africa/Johannesburg
