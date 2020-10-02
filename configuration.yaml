@@ -67,10 +67,7 @@ speedtestdotnet:
 #     - host: 192.168.0.66
 #     - host: 192.168.0.78
 
-# speedtestdotnet:
-#   scan_interval:
-#     minutes: 15
-
-# sensor:
-#   - platform: worldclock
-#     time_zone: Africa/Johannesburg
+sensor:
+  # https://www.home-assistant.io/integrations/worldclock/
+  - platform: worldclock
+    time_zone: Africa/Johannesburg
