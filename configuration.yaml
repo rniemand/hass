@@ -32,9 +32,10 @@ logger:
     homeassistant.setup: warning
     homeassistant.loader: warning
 
-# weather:
-#   - platform: darksky
-#     api_key: !secret darksky_apikey
+# https://www.home-assistant.io/integrations/weather.darksky/
+weather:
+  - platform: darksky
+    api_key: !secret darksky_apikey
 
 # tplink:
 #   discovery: false
