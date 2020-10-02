@@ -61,11 +61,12 @@ speedtestdotnet:
   scan_interval:
     minutes: 15
 
-# tplink:
-#   discovery: false
-#   switch:
-#     - host: 192.168.0.66
-#     - host: 192.168.0.78
+# https://www.home-assistant.io/integrations/tplink/
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.0.66
+    - host: 192.168.0.78
 
 sensor:
   # https://www.home-assistant.io/integrations/worldclock/
