@@ -18,6 +18,13 @@ default_config:
 recorder:
   db_url: !secret mysql_connection
 
+# https://www.home-assistant.io/docs/mqtt/broker#run-your-own
+mqtt:
+  broker: !secret mqtt_host
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
+  port: !secret mqtt_port
+
 # https://www.home-assistant.io/integrations/logger/
 logger:
   default: info
