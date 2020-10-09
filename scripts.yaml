@@ -1,0 +1,19 @@
+master_bedroom_kill_switch:
+  alias: Master Bedroom Kill Switch
+  mode: single
+  sequence:
+  - device_id: 871374bfc69e46a88c66bb8f5454ded0
+    domain: light
+    entity_id: light.master_bedside
+    type: turn_off
+  - device_id: e071f11c45a8450189f5b5632773b227
+    domain: light
+    entity_id: light.master_lamp
+    type: turn_off
+  - device_id: f59a82c35db049fe9b44f7e4cd874a2e
+    domain: switch
+    entity_id: switch.master_fan
+    type: turn_off
+  - data: {}
+    entity_id: switch.master_bedroom
+    service: switch.turn_off
