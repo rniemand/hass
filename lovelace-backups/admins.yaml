@@ -1,12 +1,13 @@
 title: Brentwood
 views:
-  - badges:
+  - icon: 'mdi:home'
+    path: home
+    title: Home
+    badges:
       - entity: person.richard_niemand
       - entity: person.sam
       - entity: person.kelsie
     cards:
-      - entity: weather.dark_sky
-        type: weather-forecast
       - type: horizontal-stack
         title: Master Bedroom
         cards:
@@ -21,7 +22,7 @@ views:
             show_state: false
             entity: switch.master_bedroom
             icon: 'mdi:light-switch'
-            name: Wall Light
+            name: Main
           - type: button
             tap_action:
               action: more-info
@@ -55,6 +56,9 @@ views:
             entity: switch.master_fan
             icon: 'mdi:fan'
             name: Fan
+      - type: entity
+        entity: sensor.worldclock_south_africa
+        name: South Africa
       - cards:
           - entity: sensor.huawei_nxt_l09_battery_level
             max: 100
@@ -236,9 +240,6 @@ views:
           - entity: media_player.sams_room_speaker
             state: playing
         type: conditional
-    icon: 'mdi:home'
-    path: home
-    title: Home
   - badges: []
     cards:
       - cards:
