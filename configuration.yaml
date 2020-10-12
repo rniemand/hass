@@ -85,3 +85,10 @@ history:
     entities:
       - worldclock.south_africa
       - weather.brentwood
+
+# https://www.home-assistant.io/integrations/panel_iframe/
+panel_iframe:
+  home_control:
+    title: 'Home Control'
+    url: 'https://apps.richardn.ca/home-control'
+    icon: mdi:broom
