@@ -84,7 +84,7 @@ history:
       - updater
       - persistent_notification
     entities:
-      - worldclock.south_africa
+      - sensor.worldclock_south_africa
       - weather.brentwood
 
 # https://www.home-assistant.io/integrations/panel_iframe/

@@ -53,225 +53,263 @@ views:
                   action: toggle
                 type: button
             type: horizontal-stack
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.basement_office
+                icon: 'mdi:briefcase-outline'
+                name: Office
+              - type: light
+                entity: light.external_lights
+                name: External
+                icon: 'mdi:home'
+              - type: light
+                entity: light.master_bedroom
+                name: Master
+                icon: 'mdi:bed-king'
+              - type: light
+                entity: light.ground_floor
+                name: Ground
+                icon: 'mdi:home-floor-l'
         type: vertical-stack
-      - cards:
-          - entity: sensor.pixel_4_xl_battery_level
-            max: 100
-            min: 0
-            name: Richard
-            type: gauge
-          - entity: sensor.pixel_2_xl_battery_level
-            max: 100
-            min: 0
-            name: Kelsie
-            type: gauge
-          - entity: sensor.huawei_nxt_l09_battery_level
-            max: 100
-            min: 0
-            name: Sam
-            type: gauge
-        type: horizontal-stack
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.pixel_4_xl_battery_level
+                min: 0
+                max: 100
+                name: Richard Battery
+              - type: gauge
+                entity: sensor.pixel_2_xl_battery_level
+                min: 0
+                max: 100
+                name: Kelsie Battery
+              - type: gauge
+                entity: sensor.huawei_nxt_l09_battery_level
+                min: 0
+                max: 100
+                name: Sam Battery
+          - type: entities
+            entities:
+              - entity: binary_sensor.pixel_4_xl_is_charging
+                name: Richard Phone Charging
+              - entity: binary_sensor.pixel_2_xl_is_charging
+                name: Kelsie Phone Charging
+              - entity: binary_sensor.huawei_nxt_l09_is_charging
+                name: Sam Phone Charging
+            show_header_toggle: false
     icon: 'mdi:home'
     path: home
     title: Home
   - badges: []
     cards:
-      - cards:
-          - cards:
-              - entity: switch.front_door
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.ground_floor
+                icon: 'mdi:home-floor-l'
+                name: Ground Floor
+              - type: button
+                tap_action:
+                  action: toggle
                 hold_action:
                   action: more-info
-                icon: 'mdi:door'
-                name: Kitchen
                 show_icon: true
                 show_name: true
                 show_state: false
+                entity: switch.front_door
+                name: Kitchen Wall
+                icon: 'mdi:fridge'
+              - type: button
                 tap_action:
                   action: toggle
-                type: button
-              - entity: light.external
                 hold_action:
                   action: more-info
-                icon: 'mdi:home'
-                name: 'Ext: All'
                 show_icon: true
                 show_name: true
                 show_state: false
+                entity: switch.master_bedroom
+                icon: 'mdi:bed-king-outline'
+                name: Master Wall
+          - type: horizontal-stack
+            cards:
+              - type: button
                 tap_action:
                   action: toggle
-                type: button
-              - entity: light.front_door
                 hold_action:
                   action: more-info
-                icon: 'mdi:door-closed'
-                name: 'Ext: Front'
                 show_icon: true
                 show_name: true
                 show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.back_door
-                hold_action:
-                  action: more-info
-                icon: 'mdi:outdoor-lamp'
-                name: 'Ext: Back'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-          - cards:
-              - entity: light.ground_floor
-                hold_action:
-                  action: more-info
-                icon: 'mdi:home-floor-g'
-                name: 'Ground: All'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.lounge_desk_lamp
-                hold_action:
-                  action: more-info
+                entity: light.lounge_desk_lamp
                 icon: 'mdi:desk'
                 name: Desk
+              - type: button
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: more-info
                 show_icon: true
                 show_name: true
                 show_state: false
+                entity: light.dining_floor_lamp
+                icon: 'mdi:television'
+                name: T.V.
+              - type: button
                 tap_action:
                   action: toggle
-                type: button
-              - entity: light.lounge_floor_lamp
                 hold_action:
                   action: more-info
-                icon: 'mdi:television-classic'
-                name: TV
                 show_icon: true
                 show_name: true
                 show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.dining_floor_lamp
-                hold_action:
-                  action: more-info
+                entity: light.lounge_floor_lamp
                 icon: 'mdi:food'
                 name: Dining
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-          - cards:
-              - entity: script.master_bedroom_kill_switch
-                hold_action:
-                  action: more-info
-                icon: 'mdi:bed-empty'
-                name: 'Master: All'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: switch.master_bedroom
-                hold_action:
-                  action: more-info
-                icon: 'mdi:light-switch'
-                name: 'M: Wall'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.master_bedside
-                hold_action:
-                  action: more-info
-                icon: 'mdi:lamp'
-                name: 'M: Bedside'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.master_lamp
-                hold_action:
-                  action: more-info
-                icon: 'mdi:floor-lamp'
-                name: 'M: Lamp'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-          - cards:
-              - entity: light.sam_s_light
-                hold_action:
-                  action: more-info
-                icon: 'mdi:baby-carriage'
-                name: Sam's Room
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.spare_room
-                hold_action:
-                  action: more-info
-                icon: 'mdi:bunk-bed'
-                name: Spare Room
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.basement_office
-                hold_action:
-                  action: more-info
-                icon: 'mdi:briefcase-clock-outline'
-                name: Office
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.play_area
-                hold_action:
-                  action: more-info
-                icon: 'mdi:gamepad-square-outline'
-                name: Play Area
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-        type: vertical-stack
-      - type: button
-        tap_action:
-          action: toggle
-        hold_action:
-          action: more-info
-        show_icon: true
-        show_name: true
-        show_state: false
-        entity: switch.china_cabinet
-        icon: 'mdi:coffee'
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.external_lights
+            icon: 'mdi:home'
+            name: External
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.front_door
+            name: Front
+            icon: 'mdi:door'
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.back_door
+            name: Back
+            icon: 'mdi:outdoor-lamp'
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.master_bedroom
+            name: Master Bed.
+            icon: 'mdi:bed-king-outline'
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.master_bedside
+            name: Bedside
+            icon: 'mdi:lamp'
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.master_lamp
+            name: Floor Lamp
+            icon: 'mdi:floor-lamp'
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.basement
+            icon: 'mdi:home-floor-b'
+            name: Basement
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.basement_office
+            name: Office
+            icon: 'mdi:briefcase-outline'
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.play_area_overhead
+            name: Play Area
+            icon: 'mdi:gamepad-square-outline'
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.spare_room
+            icon: 'mdi:bed-single-outline'
+            name: Spare Room
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.spare_room_lamp
+            icon: 'mdi:brightness-3'
+            name: Night Light
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.spare_room_lamp
+            icon: 'mdi:brightness-5'
+            name: Bright
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.sam_s_room
+            icon: 'mdi:human-child'
+            name: Sam's Room
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.sam_s_light
+            icon: 'mdi:brightness-3'
+            name: Night Light
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.sam_s_light
+            name: Bright
+            icon: 'mdi:brightness-5'
     icon: 'mdi:lightbulb-on-outline'
     path: lights
     title: Lights
@@ -316,6 +354,17 @@ views:
             type: history-graph
         title: Phone Battery %
         type: vertical-stack
+      - entities:
+          - entity: binary_sensor.pixel_2_xl_is_charging
+          - entity: sensor.pixel_2_xl_phone_state
+          - entity: sensor.pixel_2_xl_wifi_connection
+        show_header_toggle: false
+        type: entities
+      - entities:
+          - entity: sensor.pixel_2_xl_phone_state
+        hours_to_show: 4
+        refresh_interval: 5
+        type: history-graph
     icon: 'mdi:phone'
     path: phones
     title: Phones
