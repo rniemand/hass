@@ -1,15 +1,30 @@
-- id: '1603233943916'
-  alias: Toggle Basement Office Light
+- id: '1603234118314'
+  alias: Toggle Basement Storage Nook Light
   description: ''
   trigger:
   - platform: mqtt
     topic: tele/sonoff_rf/RESULT
   condition:
   - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''19A838''
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB2''
       }}'
   action:
   - data: {}
-    entity_id: light.basement_office
+    entity_id: light.hue_white_lamp_1_2
+    service: light.toggle
+  mode: single
+- id: '1603234257759'
+  alias: Toggle Basement Play Area Light
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB1''
+      }}'
+  action:
+  - data: {}
+    entity_id: light.play_area_overhead
     service: light.toggle
   mode: single
