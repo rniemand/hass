@@ -1,5 +1,5 @@
 - id: '1603234118314'
-  alias: Toggle Basement Storage Nook Light
+  alias: 'MQTT (Light.Toggle) Basement: Storage Nook'
   description: ''
   trigger:
   - platform: mqtt
@@ -14,7 +14,7 @@
     service: light.toggle
   mode: single
 - id: '1603234257759'
-  alias: Toggle Basement Play Area Light
+  alias: 'MQTT (Light.Toggle) Basement: Play Area'
   description: ''
   trigger:
   - platform: mqtt
