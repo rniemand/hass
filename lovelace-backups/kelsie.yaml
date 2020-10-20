@@ -52,16 +52,16 @@ views:
               action: toggle
             type: button
         type: horizontal-stack
-      - type: button
-        tap_action:
-          action: toggle
+      - entity: switch.china_cabinet
         hold_action:
           action: more-info
+        icon: 'mdi:coffee'
         show_icon: true
         show_name: true
         show_state: false
-        entity: switch.china_cabinet
-        icon: 'mdi:coffee'
+        tap_action:
+          action: toggle
+        type: button
     icon: 'mdi:home'
     path: home
     title: Home

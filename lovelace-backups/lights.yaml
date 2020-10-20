@@ -1,0 +1,205 @@
+title: Lights
+views:
+  - title: Running
+    path: running
+    icon: 'mdi:lightbulb-outline'
+    badges: []
+    cards: []
+  - title: External
+    path: external
+    icon: 'mdi:garage'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.external_lights
+            icon: 'mdi:home'
+            name: External
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.front_door
+            name: Front
+            icon: 'mdi:outdoor-lamp'
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.back_door
+            name: Deck
+            icon: 'mdi:outdoor-lamp'
+  - title: Basement
+    path: basement
+    icon: 'mdi:home-floor-b'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.basement
+            name: All Basement
+      - type: horizontal-stack
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.basement_office
+            name: Office
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.play_area_overhead
+            name: Play Area
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.hue_white_lamp_1_2
+            name: Storage Nook
+  - title: Ground Floor
+    path: ground-floor
+    icon: 'mdi:home-floor-1'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.ground_floor
+            icon: 'mdi:home-floor-1'
+            name: Ground (All)
+          - type: light
+            entity: light.external_lights
+            icon: 'mdi:garage'
+            name: External (All)
+      - type: horizontal-stack
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.lounge_desk_lamp
+            icon: 'mdi:desk'
+            name: Desk
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.lounge_floor_lamp
+            icon: 'mdi:television'
+            name: T.V.
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.dining_floor_lamp
+            icon: 'mdi:food'
+            name: Dining
+      - type: horizontal-stack
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: switch.china_cabinet
+            icon: 'mdi:coffee'
+            name: China Cab.
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: switch.front_door
+            name: Front Door
+            icon: 'mdi:door'
+  - title: Upstairs
+    path: upstairs
+    icon: 'mdi:home-floor-2'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.master_bedroom
+            name: Master
+          - type: light
+            entity: light.sam_s_room
+            name: Sam
+          - type: light
+            entity: light.spare_room
+            name: Spare
+      - type: horizontal-stack
+        title: Master Bedroom
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.master_bedside
+            name: Bedside
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: light.master_lamp
+            name: Lamp
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: switch.master_bedroom
+            name: Wall

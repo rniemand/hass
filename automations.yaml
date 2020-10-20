@@ -28,3 +28,66 @@
     entity_id: light.play_area_overhead
     service: light.toggle
   mode: single
+- id: '1603234565632'
+  alias: 'MQTT (Light.Toggle) Upstairs: Spare Room'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''19A838''
+      }}'
+  action:
+  - data: {}
+    entity_id: light.spare_room_lamp
+    service: light.toggle
+  mode: single
+- id: '1603234724795'
+  alias: 'MQTT (Light.Toggle) Upstairs: Spare Room (Night Light)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''19A834''
+      }}'
+  action:
+  - data:
+      brightness_pct: 5
+      entity_id: light.spare_room_lamp
+      transition: 2
+    entity_id: light.spare_room_lamp
+    service: light.turn_on
+  mode: single
+- id: '1603234823037'
+  alias: 'MQTT (Light.Toggle) Upstairs: Master Wall'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''19A832''
+      }}'
+  action:
+  - data: {}
+    entity_id: switch.master_bedroom
+    service: switch.toggle
+  mode: single
+- id: '1603234955913'
+  alias: 'MQTT (Switch.Toggle) Upstairs: Master Fan'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''19A831''
+      }}'
+  action:
+  - data: {}
+    entity_id: switch.master_fan
+    service: switch.toggle
+  mode: single
