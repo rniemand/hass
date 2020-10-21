@@ -4,7 +4,70 @@ views:
     path: running
     icon: 'mdi:lightbulb-outline'
     badges: []
-    cards: []
+    cards:
+      - type: entity-filter
+        entities:
+          - entity: light.back_door
+            name: Deck (Ext)
+            icon: 'mdi:outdoor-lamp'
+          - entity: light.front_door
+            name: Front (Ext)
+            icon: 'mdi:outdoor-lamp'
+          - entity: light.basement_office
+            name: Office
+            icon: 'mdi:briefcase-outline'
+          - entity: light.play_area_overhead
+            name: Play Area
+            icon: 'mdi:gamepad-variant-outline'
+          - entity: light.hue_white_lamp_1_2
+            name: Storage Nook
+            icon: 'mdi:stairs'
+          - entity: light.lounge_desk_lamp
+            name: Desk
+            icon: 'mdi:desk'
+          - entity: light.lounge_floor_lamp
+            name: T.V.
+            icon: 'mdi:television'
+          - entity: light.dining_floor_lamp
+            name: Dining
+            icon: 'mdi:food'
+          - entity: light.sam_s_light
+            name: Sam
+            icon: 'mdi:bed'
+          - entity: light.master_bedside
+            name: Bedside
+            icon: 'mdi:lamp'
+          - entity: light.master_lamp
+            name: Floor Lamp
+            icon: 'mdi:floor-lamp'
+          - entity: light.spare_room
+            name: Spare Room
+            icon: 'mdi:bunk-bed'
+        state_filter:
+          - 'on'
+        show_empty: false
+        card:
+          type: glance
+          show_state: false
+          columns: 3
+      - type: entity-filter
+        entities:
+          - entity: switch.master_bedroom
+            name: Master Wall
+            icon: 'mdi:light-switch'
+          - entity: switch.front_door
+            name: Front Door
+            icon: 'mdi:door'
+          - entity: switch.china_cabinet
+            name: China Cab.
+            icon: 'mdi:coffee'
+        state_filter:
+          - 'on'
+        show_empty: false
+        card:
+          type: glance
+          show_state: false
+          columns: 3
   - title: External
     path: external
     icon: 'mdi:garage'
@@ -48,6 +111,7 @@ views:
           - type: light
             entity: light.basement
             name: All Basement
+            icon: 'mdi:home-floor-b'
       - type: horizontal-stack
         cards:
           - type: button
@@ -60,6 +124,7 @@ views:
             show_state: false
             entity: light.basement_office
             name: Office
+            icon: 'mdi:briefcase-outline'
           - type: button
             tap_action:
               action: toggle
@@ -70,6 +135,7 @@ views:
             show_state: false
             entity: light.play_area_overhead
             name: Play Area
+            icon: 'mdi:gamepad-variant-outline'
           - type: button
             tap_action:
               action: toggle
@@ -80,6 +146,7 @@ views:
             show_state: false
             entity: light.hue_white_lamp_1_2
             name: Storage Nook
+            icon: 'mdi:stairs'
   - title: Ground Floor
     path: ground-floor
     icon: 'mdi:home-floor-1'
@@ -96,6 +163,7 @@ views:
             icon: 'mdi:garage'
             name: External (All)
       - type: horizontal-stack
+        title: Ground Floor (Hue)
         cards:
           - type: button
             tap_action:
@@ -131,6 +199,7 @@ views:
             icon: 'mdi:food'
             name: Dining
       - type: horizontal-stack
+        title: Switch Based Lights
         cards:
           - type: button
             tap_action:
@@ -164,12 +233,15 @@ views:
           - type: light
             entity: light.master_bedroom
             name: Master
+            icon: 'mdi:bed-king-outline'
           - type: light
             entity: light.sam_s_room
             name: Sam
+            icon: 'mdi:bed'
           - type: light
             entity: light.spare_room
             name: Spare
+            icon: 'mdi:bunk-bed'
       - type: horizontal-stack
         title: Master Bedroom
         cards:
@@ -183,6 +255,7 @@ views:
             show_state: false
             entity: light.master_bedside
             name: Bedside
+            icon: 'mdi:lamp'
           - type: button
             tap_action:
               action: toggle
@@ -193,6 +266,7 @@ views:
             show_state: false
             entity: light.master_lamp
             name: Lamp
+            icon: 'mdi:floor-lamp'
           - type: button
             tap_action:
               action: toggle
@@ -203,3 +277,4 @@ views:
             show_state: false
             entity: switch.master_bedroom
             name: Wall
+            icon: 'mdi:light-switch'
