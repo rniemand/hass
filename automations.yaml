@@ -91,8 +91,8 @@
     entity_id: switch.master_fan
     service: switch.toggle
   mode: single
-- id: '1603485536575'
-  alias: Testing
+- id: '1603489757466'
+  alias: 'Notify <MED> Door: Spare Room (Early Morning)'
   description: ''
   trigger:
   - entity_id: binary_sensor.spare_room_door
@@ -100,14 +100,36 @@
     platform: state
     to: 'on'
   condition:
-  - after: 06:00:00
-    before: '15:00:00'
+  - after: 01:00:00
+    before: 07:00:00
+    condition: time
+  action:
+  - data:
+      data:
+        priority: 0
+        sound: tugboat
+      message: Spare room door is open
+      title: 'Door: Spare Room'
+    service: notify.pushover_richard
+  mode: single
+- id: '1603490104373'
+  alias: 'Notify <HIGH> Doors: Basement (Early Morning)'
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.basement_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 01:00:00
+    before: 07:00:00
     condition: time
   action:
   - data:
       data:
         priority: 1
-      message: Spare room door is open
-      title: Spare Room Door
+        sound: tugboat
+      message: The basement door is open
+      title: 'Door: Basement'
     service: notify.pushover_richard
   mode: single
