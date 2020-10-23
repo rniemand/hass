@@ -1,5 +1,5 @@
 - id: '1603234118314'
-  alias: 'MQTT (Light.Toggle) Basement: Storage Nook'
+  alias: 'MQTT (Light.Toggle) Basement: Storage Nook <Basement_Wall>'
   description: ''
   trigger:
   - platform: mqtt
@@ -14,7 +14,7 @@
     service: light.toggle
   mode: single
 - id: '1603234257759'
-  alias: 'MQTT (Light.Toggle) Basement: Play Area'
+  alias: 'MQTT (Light.Toggle) Basement: Play Area <Basement_Wall>'
   description: ''
   trigger:
   - platform: mqtt
@@ -29,7 +29,7 @@
     service: light.toggle
   mode: single
 - id: '1603234565632'
-  alias: 'MQTT (Light.Toggle) Upstairs: Spare Room'
+  alias: 'MQTT (Light.Toggle) Upstairs: Spare Room <Kelsie_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -44,7 +44,7 @@
     service: light.toggle
   mode: single
 - id: '1603234724795'
-  alias: 'MQTT (Light.NightLight) Upstairs: Spare Room'
+  alias: 'MQTT (Light.NightLight) Upstairs: Spare Room <Kelsie_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -62,7 +62,7 @@
     service: light.turn_on
   mode: single
 - id: '1603234823037'
-  alias: 'MQTT (Switch.Toggle) Upstairs: Master Wall'
+  alias: 'MQTT (Switch.Toggle) Upstairs: Master Wall <Kelsie_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -77,7 +77,7 @@
     service: switch.toggle
   mode: single
 - id: '1603234955913'
-  alias: 'MQTT (Switch.Toggle) Upstairs: Master Fan'
+  alias: 'MQTT (Switch.Toggle) Upstairs: Master Fan <Kelsie_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -155,7 +155,7 @@
     service: notify.pushover_richard
   mode: single
 - id: '1603493124055'
-  alias: 'MQTT (Light.Toggle) Upstairs: Sam''s Room'
+  alias: 'MQTT (Light.Toggle) Upstairs: Sam''s Room <Sam_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -170,7 +170,7 @@
     service: light.toggle
   mode: single
 - id: '1603493241122'
-  alias: 'MQTT (Light.Bright) Upstairs: Sam''s Room'
+  alias: 'MQTT (Light.Bright) Upstairs: Sam''s Room <Sam_Remote>'
   description: ''
   trigger:
   - platform: mqtt
@@ -188,7 +188,7 @@
     service: light.turn_on
   mode: single
 - id: '1603493338675'
-  alias: 'MQTT (Light.NightLight) Upstairs: Sam''s Room'
+  alias: 'MQTT (Light.NightLight) Upstairs: Sam''s Room <Sam_Remote>'
   description: ''
   trigger:
   - platform: mqtt
