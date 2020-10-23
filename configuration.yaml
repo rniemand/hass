@@ -77,6 +77,13 @@ sensor:
     time_zone: Africa/Johannesburg
     name: worldclock.south_africa
 
+notify:
+  # https://www.home-assistant.io/integrations/pushover/
+  - name: Pushover (Richard)
+    platform: pushover
+    api_key: !secret pushover_richard_api
+    user_key: !secret pushover_richard_user
+
 # https://www.home-assistant.io/integrations/history/
 history:
   exclude:

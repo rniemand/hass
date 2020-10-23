@@ -91,3 +91,23 @@
     entity_id: switch.master_fan
     service: switch.toggle
   mode: single
+- id: '1603485536575'
+  alias: Testing
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.spare_room_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: 06:00:00
+    before: '15:00:00'
+    condition: time
+  action:
+  - data:
+      data:
+        priority: 1
+      message: Spare room door is open
+      title: Spare Room Door
+    service: notify.pushover_richard
+  mode: single
