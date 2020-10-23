@@ -40,11 +40,11 @@
       }}'
   action:
   - data: {}
-    entity_id: light.spare_room_lamp
+    entity_id: light.sam_s_light
     service: light.toggle
   mode: single
 - id: '1603234724795'
-  alias: 'MQTT (Light.Toggle) Upstairs: Spare Room (Night Light)'
+  alias: 'MQTT (Light.NightLight) Upstairs: Spare Room'
   description: ''
   trigger:
   - platform: mqtt
@@ -62,7 +62,7 @@
     service: light.turn_on
   mode: single
 - id: '1603234823037'
-  alias: 'MQTT (Light.Toggle) Upstairs: Master Wall'
+  alias: 'MQTT (Switch.Toggle) Upstairs: Master Wall'
   description: ''
   trigger:
   - platform: mqtt
@@ -153,4 +153,55 @@
       message: Front Door is open!
       title: 'Door: Front'
     service: notify.pushover_richard
+  mode: single
+- id: '1603493124055'
+  alias: 'MQTT (Light.Toggle) Upstairs: Sam''s Room'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56804''
+      }}'
+  action:
+  - data: {}
+    entity_id: light.basement_office
+    service: light.toggle
+  mode: single
+- id: '1603493241122'
+  alias: 'MQTT (Light.Bright) Upstairs: Sam''s Room'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56801''
+      }}'
+  action:
+  - data:
+      brightness_pct: 100
+      entity_id: light.sam_s_light
+      transition: 1
+    entity_id: light.sam_s_light
+    service: light.turn_on
+  mode: single
+- id: '1603493338675'
+  alias: 'MQTT (Light.NightLight) Upstairs: Sam''s Room'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56802''
+      }}'
+  action:
+  - data:
+      brightness_pct: 5
+      entity_id: light.sam_s_light
+      transition: 2
+    entity_id: light.sam_s_light
+    service: light.turn_on
   mode: single

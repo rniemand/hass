@@ -1,0 +1,9 @@
+
+Sams Bedroom Remote:
+  type: 4 Button
+  location: Upstairs
+  buttons:
+    top_left: E56804 (Toggles Bedroom Light)
+    top_right: E56801 (Bedroom Light 100%)
+    bottom_left: E56802 (Bedroom Light 5%)
+    bottom_right: E56808
