@@ -69,182 +69,59 @@ views:
     cards:
       - cards:
           - cards:
-              - entity: switch.front_door
-                hold_action:
-                  action: more-info
-                icon: 'mdi:door'
-                name: Kitchen
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.external
-                hold_action:
-                  action: more-info
-                icon: 'mdi:home'
-                name: 'Ext: All'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.front_door
-                hold_action:
-                  action: more-info
-                icon: 'mdi:door-closed'
-                name: 'Ext: Front'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.back_door
-                hold_action:
-                  action: more-info
-                icon: 'mdi:outdoor-lamp'
-                name: 'Ext: Back'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-          - cards:
-              - entity: light.ground_floor
-                hold_action:
-                  action: more-info
-                icon: 'mdi:home-floor-g'
-                name: 'Ground: All'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.lounge_desk_lamp
-                hold_action:
-                  action: more-info
-                icon: 'mdi:desk'
-                name: Desk
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.lounge_floor_lamp
-                hold_action:
-                  action: more-info
-                icon: 'mdi:television-classic'
-                name: TV
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
               - entity: light.dining_floor_lamp
-                hold_action:
-                  action: more-info
                 icon: 'mdi:food'
                 name: Dining
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
+                type: light
+              - entity: light.lounge_floor_lamp
+                icon: 'mdi:television'
+                name: T.V.
+                type: light
+              - entity: light.lounge_desk_lamp
+                icon: 'mdi:desk'
+                name: Desk
+                type: light
             type: horizontal-stack
           - cards:
-              - entity: script.master_bedroom_kill_switch
-                hold_action:
-                  action: more-info
-                icon: 'mdi:bed-empty'
-                name: 'Master: All'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
+              - entity: light.master_bedroom
+                icon: 'mdi:bed-king'
+                name: Master (Hue)
+                type: light
+              - entity: light.spare_room
+                icon: 'mdi:bunk-bed'
+                name: Boys Room
+                type: light
+              - entity: light.sam_s_light
+                icon: 'mdi:bed'
+                name: Sam's Room
+                type: light
+            type: horizontal-stack
+          - cards:
               - entity: switch.master_bedroom
                 hold_action:
                   action: more-info
                 icon: 'mdi:light-switch'
-                name: 'M: Wall'
+                name: Master (Wall)
                 show_icon: true
                 show_name: true
                 show_state: false
                 tap_action:
                   action: toggle
                 type: button
-              - entity: light.master_bedside
+              - entity: switch.front_door
                 hold_action:
                   action: more-info
-                icon: 'mdi:lamp'
-                name: 'M: Bedside'
+                icon: 'mdi:door'
                 show_icon: true
                 show_name: true
                 show_state: false
                 tap_action:
                   action: toggle
                 type: button
-              - entity: light.master_lamp
+              - entity: switch.china_cabinet
                 hold_action:
                   action: more-info
-                icon: 'mdi:floor-lamp'
-                name: 'M: Lamp'
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-            type: horizontal-stack
-          - cards:
-              - entity: light.sam_s_light
-                hold_action:
-                  action: more-info
-                icon: 'mdi:baby-carriage'
-                name: Sam's Room
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.spare_room
-                hold_action:
-                  action: more-info
-                icon: 'mdi:bunk-bed'
-                name: Spare Room
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.basement_office
-                hold_action:
-                  action: more-info
-                icon: 'mdi:briefcase-clock-outline'
-                name: Office
-                show_icon: true
-                show_name: true
-                show_state: false
-                tap_action:
-                  action: toggle
-                type: button
-              - entity: light.play_area
-                hold_action:
-                  action: more-info
-                icon: 'mdi:gamepad-square-outline'
-                name: Play Area
+                icon: 'mdi:coffee'
                 show_icon: true
                 show_name: true
                 show_state: false

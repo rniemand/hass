@@ -5,62 +5,71 @@ views:
       - entity: person.richard_niemand
       - entity: person.sam
     cards:
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.pixel_4_xl_is_charging
-            state: 'on'
-        card:
-          type: vertical-stack
-          title: Richard-Pixel 4 XL
-          cards:
-            - type: entities
-              entities:
-                - entity: sensor.pixel_4_xl_charger_type
-                - entity: sensor.pixel_4_xl_phone_state
-                - entity: sensor.pixel_4_xl_geocoded_location
-                - entity: sensor.pixel_4_xl_battery_level
-              show_header_toggle: false
-            - type: history-graph
-              entities:
-                - entity: sensor.pixel_4_xl_battery_level
-              hours_to_show: 24
-              refresh_interval: 0
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.updater
-            state: 'on'
-        card:
-          type: button
-          tap_action:
-            action: toggle
-          hold_action:
-            action: more-info
-          show_icon: true
-          show_name: true
-          show_state: false
-          entity: binary_sensor.updater
-      - type: horizontal-stack
-        cards:
-          - type: button
-            tap_action: &ref_0
+      - cards:
+          - entity: switch.master_bedroom
+            hold_action:
+              action: more-info
+            icon: 'mdi:bed'
+            name: Master Wall
+            show_icon: true
+            show_name: true
+            show_state: false
+            tap_action:
               action: toggle
-            hold_action: &ref_1
+            type: button
+          - entity: switch.master_fan
+            hold_action:
+              action: more-info
+            icon: 'mdi:fan'
+            name: Master Fan
+            show_icon: true
+            show_name: true
+            show_state: false
+            tap_action:
+              action: toggle
+            type: button
+          - type: button
+            tap_action:
+              action: toggle
+            hold_action:
               action: more-info
             show_icon: true
             show_name: true
             show_state: false
-            entity: switch.master_bedroom
-            name: Master Wall
-            icon: 'mdi:bed'
+            entity: binary_sensor.updater
+        type: horizontal-stack
+      - type: horizontal-stack
+        cards:
           - type: button
-            tap_action: *ref_0
-            hold_action: *ref_1
+            tap_action:
+              action: more-info
+            hold_action:
+              action: more-info
             show_icon: true
             show_name: true
             show_state: false
-            entity: switch.master_fan
-            name: Master Fan
-            icon: 'mdi:fan'
+            entity: binary_sensor.basement_door
+            name: Basement
+          - type: button
+            tap_action:
+              action: more-info
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: binary_sensor.front_door
+            name: Front
+          - type: button
+            tap_action:
+              action: more-info
+            hold_action:
+              action: more-info
+            show_icon: true
+            show_name: true
+            show_state: false
+            entity: binary_sensor.back_door
+            name: Back
     icon: 'mdi:home'
     path: home
     title: Home
