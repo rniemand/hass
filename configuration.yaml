@@ -102,7 +102,7 @@ binary_sensor:
     payload_on: "CD6AC6"
     device_class: door
     value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 10
+    off_delay: 30
 
   - platform: mqtt
     name: "Front Door"
@@ -110,7 +110,7 @@ binary_sensor:
     payload_on: "016736"
     device_class: door
     value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 10
+    off_delay: 30
 
   - platform: mqtt
     name: "Back Door"
@@ -118,4 +118,12 @@ binary_sensor:
     payload_on: "015836"
     device_class: door
     value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 10
+    off_delay: 30
+
+  - platform: mqtt
+    name: "Spare Room Door"
+    state_topic: "tele/sonoff_rf/RESULT"
+    payload_on: "BB3AC6"
+    device_class: door
+    value_template: '{{ value_json.RfReceived.Data }}'
+    off_delay: 30
