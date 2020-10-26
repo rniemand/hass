@@ -121,9 +121,9 @@
     platform: state
     to: 'on'
   condition:
-  - after: 01:00:00
+  - condition: time
+    after: 01:00:00
     before: 07:00:00
-    condition: time
   action:
   - data:
       data:
@@ -166,7 +166,7 @@
       }}'
   action:
   - data: {}
-    entity_id: light.basement_office
+    entity_id: light.sam_s_light
     service: light.toggle
   mode: single
 - id: '1603493241122'
@@ -204,4 +204,22 @@
       transition: 2
     entity_id: light.sam_s_light
     service: light.turn_on
+  mode: single
+- id: '1603736277244'
+  alias: 'Pushover <HIGH> Doors: Basement (Ahem)'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.basement_door
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      message: The basement door is open
+      title: 'Door: Basement'
   mode: single
