@@ -109,10 +109,10 @@ panel_iframe:
     title: 'Home Control'
     url: 'https://apps.richardn.ca/home-control'
     icon: mdi:playlist-check
-  sonarr:
-    title: 'Sonarr'
-    url: 'http://nas.richardn.ca:8989/'
-    icon: mdi:television
+  # sonarr:
+  #   title: 'Sonarr'
+  #   url: 'http://nas.richardn.ca:8989/'
+  #   icon: mdi:television
   # radarr:
   #   title: 'Radarr'
   #   url: 'http://nas.richardn.ca:7878/'
