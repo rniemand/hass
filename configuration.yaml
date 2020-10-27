@@ -140,7 +140,7 @@ binary_sensor:
     off_delay: 15
 
   - platform: mqtt
-    name: "Downstairs Loo"
+    name: "Downstairs Toilet"
     state_topic: "tele/sonoff_rf/RESULT"
     payload_on: "015786"
     device_class: door

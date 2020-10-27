@@ -1,19 +1,22 @@
 
-Sams Bedroom Remote:
+# Sam's bedroom remote
+RF-01:
   type: 4 Button
   location: Upstairs
   buttons:
-    top_left: E56804 (Toggles Bedroom Light)
-    top_right: E56801 (Bedroom Light 100%)
-    bottom_left: E56802 (Bedroom Light 5%)
+    tl: E56804
+    tr: E56801
+    bl: E56802
     bottom_right: E56808
 
-Kelsies:
-  button_1: 19A834 | Night Light | Spare Room
-  button_2: 19A831 | Switch Toggle | Master Bedroom Fan
-  button_3: 19A832 | Switch Toggle | Master Wall Light
-  button_4: 19A838 | Light Toggle | Spare Room
+# Kelsie's 4 button remote (A-D)
+RF-02:
+  b: 19A834
+  d: 19A831
+  c: 19A832
+  a: 19A838
 
-Basement Wall:
-  button_1: 3EAEB1 | Light Toggle | Play Area
-  button_2: 3EAEB2 | Light Toggle | Basement Storage Nook
+# Basement Wall
+RF-03:
+  left: 3EAEB1
+  right: 3EAEB2
