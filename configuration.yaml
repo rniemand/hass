@@ -70,6 +70,7 @@ tplink:
     - host: 192.168.0.66
     - host: 192.168.0.78
     - host: 192.168.0.59
+    - host: 192.168.0.116
 
 sensor:
   # https://www.home-assistant.io/integrations/worldclock/

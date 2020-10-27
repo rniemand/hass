@@ -1,22 +1,25 @@
 
 # Sam's bedroom remote
 RF-01:
-  type: 4 Button
-  location: Upstairs
-  buttons:
-    tl: E56804
-    tr: E56801
-    bl: E56802
-    bottom_right: E56808
+  top_left: E56804
+  top_right: E56801
+  bottom_left: E56802
+  bottom_right: E56808
 
 # Kelsie's 4 button remote (A-D)
 RF-02:
-  b: 19A834
-  d: 19A831
-  c: 19A832
   a: 19A838
+  b: 19A834
+  c: 19A832
+  d: 19A831
 
 # Basement Wall
 RF-03:
   left: 3EAEB1
   right: 3EAEB2
+
+# Office Wall
+RF-04:
+  left: 1992A1
+  middle: 1992A8
+  right: 1992A2
