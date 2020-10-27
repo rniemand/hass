@@ -1,106 +1,38 @@
-title: Lights
 views:
-  - title: Running
-    path: running
-    icon: 'mdi:lightbulb-outline'
-    badges: []
-    cards:
-      - type: entity-filter
-        entities:
-          - entity: light.back_door
-            name: Deck (Ext)
-            icon: 'mdi:outdoor-lamp'
-          - entity: light.front_door
-            name: Front (Ext)
-            icon: 'mdi:outdoor-lamp'
-          - entity: light.basement_office
-            name: Office
-            icon: 'mdi:briefcase-outline'
-          - entity: light.play_area_overhead
-            name: Play Area
-            icon: 'mdi:gamepad-variant-outline'
-          - entity: light.hue_white_lamp_1_2
-            name: Storage Nook
-            icon: 'mdi:stairs'
-          - entity: light.lounge_desk_lamp
-            name: Desk
-            icon: 'mdi:desk'
-          - entity: light.lounge_floor_lamp
-            name: T.V.
-            icon: 'mdi:television'
-          - entity: light.dining_floor_lamp
-            name: Dining
-            icon: 'mdi:food'
-          - entity: light.sam_s_light
-            name: Sam
-            icon: 'mdi:bed'
-          - entity: light.master_bedside
-            name: Bedside
-            icon: 'mdi:lamp'
-          - entity: light.master_lamp
-            name: Floor Lamp
-            icon: 'mdi:floor-lamp'
-          - entity: light.spare_room
-            name: Spare Room
-            icon: 'mdi:bunk-bed'
-        state_filter:
-          - 'on'
-        show_empty: false
-        card:
-          type: glance
-          show_state: false
-          columns: 3
-      - type: entity-filter
-        entities:
-          - entity: switch.master_bedroom
-            name: Master Wall
-            icon: 'mdi:light-switch'
-          - entity: switch.front_door
-            name: Front Door
-            icon: 'mdi:door'
-          - entity: switch.china_cabinet
-            name: China Cab.
-            icon: 'mdi:coffee'
-        state_filter:
-          - 'on'
-        show_empty: false
-        card:
-          type: glance
-          show_state: false
-          columns: 3
   - title: External
     path: external
-    icon: 'mdi:garage'
+    icon: 'mdi:home-circle'
     badges: []
     cards:
+      - type: light
+        entity: light.external_lights
+        icon: 'mdi:home'
+        name: External
       - type: horizontal-stack
         cards:
-          - type: light
+          - type: button
+            tap_action:
+              action: call-service
+              service: light.toggle
+              service_data:
+                entity_id: light.external_lights
             entity: light.external_lights
-            icon: 'mdi:home'
-            name: External
+            icon: 'mdi:toggle-switch'
+            name: On / Off
+            hold_action:
+              action: more-info
           - type: button
             tap_action:
               action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
             entity: light.front_door
-            name: Front
+            name: Ext. Front
             icon: 'mdi:outdoor-lamp'
           - type: button
             tap_action:
               action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
             entity: light.back_door
-            name: Deck
-            icon: 'mdi:outdoor-lamp'
+            name: Ext. Back
+            icon: 'mdi:coach-lamp'
   - title: Basement
     path: basement
     icon: 'mdi:home-floor-b'
@@ -109,172 +41,188 @@ views:
       - type: horizontal-stack
         cards:
           - type: light
-            entity: light.basement
-            name: All Basement
-            icon: 'mdi:home-floor-b'
-      - type: horizontal-stack
-        cards:
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
             entity: light.basement_office
             name: Office
             icon: 'mdi:briefcase-outline'
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
+          - type: light
+            entity: light.laundry
+            name: Laundry
+            icon: 'mdi:washing-machine'
+      - type: horizontal-stack
+        cards:
+          - type: light
             entity: light.play_area_overhead
             name: Play Area
             icon: 'mdi:gamepad-variant-outline'
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
+          - type: light
             entity: light.hue_white_lamp_1_2
             name: Storage Nook
             icon: 'mdi:stairs'
+      - type: button
+        tap_action:
+          action: toggle
+        entity: switch.basement_sensi_pot
+        name: Sensi Pot
+        icon: 'mdi:oil-lamp'
   - title: Ground Floor
     path: ground-floor
+    icon: 'mdi:home-floor-g'
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.lounge_floor_lamp
+            name: T.V. Lamp
+            icon: 'mdi:television'
+          - type: light
+            entity: light.dining_floor_lamp
+            name: Dining
+            icon: 'mdi:food-fork-drink'
+      - type: horizontal-stack
+        cards:
+          - type: light
+            entity: light.lounge_desk_lamp
+            name: Desk
+            icon: 'mdi:desk'
+          - type: light
+            entity: light.external_lights
+            name: External
+            icon: 'mdi:home'
+      - type: horizontal-stack
+        cards:
+          - type: button
+            tap_action:
+              action: toggle
+            entity: switch.front_door
+            name: Kitchen Wall
+            icon: 'mdi:light-switch'
+          - type: button
+            tap_action:
+              action: toggle
+            entity: switch.china_cabinet
+            name: China Cab.
+            icon: 'mdi:coffee'
+  - title: Upstairs
+    path: upstairs
     icon: 'mdi:home-floor-1'
     badges: []
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: light
-            entity: light.ground_floor
-            icon: 'mdi:home-floor-1'
-            name: Ground (All)
-          - type: light
-            entity: light.external_lights
-            icon: 'mdi:garage'
-            name: External (All)
-      - type: horizontal-stack
-        title: Ground Floor (Hue)
-        cards:
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
-            entity: light.lounge_desk_lamp
-            icon: 'mdi:desk'
-            name: Desk
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
-            entity: light.lounge_floor_lamp
-            icon: 'mdi:television'
-            name: T.V.
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
-            entity: light.dining_floor_lamp
-            icon: 'mdi:food'
-            name: Dining
-      - type: horizontal-stack
-        title: Switch Based Lights
-        cards:
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
-            entity: switch.china_cabinet
-            icon: 'mdi:coffee'
-            name: China Cab.
-          - type: button
-            tap_action:
-              action: toggle
-            hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
-            show_state: false
-            entity: switch.front_door
-            name: Front Door
-            icon: 'mdi:door'
-  - title: Upstairs
-    path: upstairs
-    icon: 'mdi:home-floor-2'
-    badges: []
-    cards:
-      - type: horizontal-stack
-        cards:
-          - type: light
-            entity: light.master_bedroom
-            name: Master
-            icon: 'mdi:bed-king-outline'
-          - type: light
-            entity: light.sam_s_room
-            name: Sam
-            icon: 'mdi:bed'
-          - type: light
-            entity: light.spare_room
-            name: Spare
-            icon: 'mdi:bunk-bed'
-      - type: horizontal-stack
+      - type: vertical-stack
         title: Master Bedroom
         cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.master_bedroom
+                name: Master Hues
+                icon: 'mdi:bed-king'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: light.master_bedside
+                name: Bedside
+                icon: 'mdi:lamp'
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: light.master_lamp
+                name: Floor
+                icon: 'mdi:floor-lamp'
+                hold_action:
+                  action: toggle
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_bedroom_light_switch
+                name: Master Wall
+                icon: 'mdi:light-switch'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_fan
+                name: Master Fan
+                icon: 'mdi:fan'
+      - type: horizontal-stack
+        title: Sams Room
+        cards:
           - type: button
             tap_action:
-              action: toggle
-            hold_action:
               action: more-info
-            show_icon: true
-            show_name: true
+            entity: light.sam_s_room
+            name: Toggle
+            icon: 'mdi:bed'
             show_state: false
-            entity: light.master_bedside
-            name: Bedside
-            icon: 'mdi:lamp'
+            hold_action:
+              action: toggle
+            show_name: true
           - type: button
             tap_action:
-              action: toggle
+              action: call-service
+              service: light.turn_on
+              service_data:
+                brightness_pct: 5
+                entity_id: light.sam_s_light
+            entity: light.sam_s_light
+            name: Night Light
+            icon: 'mdi:brightness-3'
             hold_action:
-              action: more-info
+              action: toggle
+            show_state: false
             show_icon: true
             show_name: true
-            show_state: false
-            entity: light.master_lamp
-            name: Lamp
-            icon: 'mdi:floor-lamp'
           - type: button
             tap_action:
-              action: toggle
+              action: call-service
+              service: light.turn_on
+              service_data:
+                brightness_pct: 100
+                entity_id: light.sam_s_light
+            entity: light.sam_s_light
+            name: Bright
+            icon: 'mdi:brightness-5'
             hold_action:
-              action: more-info
-            show_icon: true
-            show_name: true
+              action: toggle
             show_state: false
-            entity: switch.master_bedroom
-            name: Wall
-            icon: 'mdi:light-switch'
+            show_name: true
+      - type: horizontal-stack
+        title: Boys Room
+        cards:
+          - type: button
+            tap_action:
+              action: more-info
+            entity: light.boys_room
+            icon: 'mdi:bunk-bed'
+            hold_action:
+              action: toggle
+            show_name: true
+            name: Toggle
+          - type: button
+            tap_action:
+              action: call-service
+              service: light.turn_on
+              service_data:
+                brightness_pct: 5
+                entity_id: light.boys_room
+            entity: light.boys_room
+            icon: 'mdi:brightness-3'
+            hold_action:
+              action: toggle
+            show_name: true
+            name: Night Light
+          - type: button
+            tap_action:
+              action: call-service
+              service: light.turn_on
+              service_data:
+                brightness_pct: 100
+                entity_id: light.boys_room
+            entity: light.boys_room
+            name: Bright
+            icon: 'mdi:brightness-5'
+            hold_action:
+              action: toggle
+            show_name: true
+title: Lights
