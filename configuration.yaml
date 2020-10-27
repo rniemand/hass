@@ -108,7 +108,19 @@ panel_iframe:
   home_control:
     title: 'Home Control'
     url: 'https://apps.richardn.ca/home-control'
-    icon: mdi:broom
+    icon: mdi:playlist-check
+  sonarr:
+    title: 'Sonarr'
+    url: 'http://nas.richardn.ca:8989/'
+    icon: mdi:television
+  # radarr:
+  #   title: 'Radarr'
+  #   url: 'http://nas.richardn.ca:7878/'
+  #   icon: mdi:television
+  # grafana:
+  #   title: 'Grafana'
+  #   url: 'http://nas.richardn.ca:3000/'
+  #   icon: mdi:chart-bell-curve-cumulative
 
 # Example configuration.yaml entry
 binary_sensor:
