@@ -92,7 +92,7 @@
     service: switch.toggle
   mode: single
 - id: '1603489757466'
-  alias: 'Pushover <MED> Door: Spare Room (Early Morning)'
+  alias: 'Pushover <MED> Door: Boys Room (Early Morning)'
   description: ''
   trigger:
   - entity_id: binary_sensor.spare_room_door
@@ -108,9 +108,16 @@
       data:
         priority: 0
         sound: tugboat
-      message: Spare room door is open
-      title: 'Door: Spare Room'
+      message: Boys room door is open
+      title: 'Door: Boys Room'
     service: notify.pushover_richard
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 0
+        sound: tugboat
+      message: Boys room door is open
+      title: 'Door: Boys Room'
   mode: single
 - id: '1603490104373'
   alias: 'Pushover <HIGH> Doors: Basement (Early Morning)'
@@ -132,6 +139,13 @@
       message: The basement door is open
       title: 'Door: Basement'
     service: notify.pushover_richard
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      message: The basement door is open
+      title: 'Door: Basement'
   mode: single
 - id: '1603491114440'
   alias: 'Pushover <HIGH> Doors: Front (Early Morning)'
@@ -153,6 +167,13 @@
       message: Front Door is open!
       title: 'Door: Front'
     service: notify.pushover_richard
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: siren
+      message: Front Door is open!
+      title: 'Door: Front'
   mode: single
 - id: '1603493124055'
   alias: 'RF-01-TL [Light.Toggle] Upstairs: Sam''s Room'
@@ -216,6 +237,13 @@
   condition: []
   action:
   - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      message: The basement door is open
+      title: 'Door: Basement'
+  - service: notify.pushover_kelsie
     data:
       data:
         priority: 1
