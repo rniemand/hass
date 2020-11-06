@@ -17,3 +17,15 @@ master_bedroom_kill_switch:
   - data: {}
     entity_id: switch.master_bedroom
     service: switch.turn_off
+master_bedroom_notify_lights:
+  alias: Master Bedroom Notify (Lights)
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+    entity_id: light.master_bedroom
+  - delay: '5'
+  - service: light.turn_off
+    data: {}
+    entity_id: light.master_bedroom
+  mode: single

@@ -73,7 +73,7 @@
       }}'
   action:
   - data: {}
-    entity_id: switch.master_bedroom
+    entity_id: switch.master_bedroom_light_switch
     service: switch.toggle
   mode: single
 - id: '1603234955913'
@@ -92,7 +92,7 @@
     service: switch.toggle
   mode: single
 - id: '1603489757466'
-  alias: 'Pushover <MED> Door: Boys Room (Early Morning)'
+  alias: 'Pushover <HIGH> Door: Boys Room (Early Morning)'
   description: ''
   trigger:
   - entity_id: binary_sensor.spare_room_door
@@ -106,7 +106,7 @@
   action:
   - data:
       data:
-        priority: 0
+        priority: 1
         sound: tugboat
       message: Boys room door is open
       title: 'Door: Boys Room'
@@ -114,10 +114,12 @@
   - service: notify.pushover_kelsie
     data:
       data:
-        priority: 0
+        priority: 1
         sound: tugboat
       message: Boys room door is open
       title: 'Door: Boys Room'
+  - service: script.master_bedroom_notify_lights
+    data: {}
   mode: single
 - id: '1603490104373'
   alias: 'Pushover <HIGH> Doors: Basement (Early Morning)'
@@ -146,6 +148,8 @@
         sound: tugboat
       message: The basement door is open
       title: 'Door: Basement'
+  - service: script.master_bedroom_notify_lights
+    data: {}
   mode: single
 - id: '1603491114440'
   alias: 'Pushover <HIGH> Doors: Front (Early Morning)'
@@ -295,4 +299,32 @@
   - service: switch.toggle
     data: {}
     entity_id: switch.basement_sensi_pot
+  mode: single
+- id: '1603861294708'
+  alias: 'Pushover <HIGH> Door: Boys Room (Afternoon)'
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.spare_room_door
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: time
+    after: '12:00:00'
+    before: '16:00:00'
+  action:
+  - data:
+      data:
+        priority: 1
+        sound: tugboat
+      message: Boys room door is open
+      title: 'Door: Boys Room'
+    service: notify.pushover_richard
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      message: Boys room door is open
+      title: 'Door: Boys Room'
   mode: single
