@@ -1,0 +1,14 @@
+# https://www.home-assistant.io/integrations/pushover/
+
+- name: Pushover - Richard (Dev)
+  platform: pushover
+  api_key: !secret pushover_richard_api_dev
+  user_key: !secret pushover_richard_user
+- name: Pushover - Richard
+  platform: pushover
+  api_key: !secret pushover_richard_api
+  user_key: !secret pushover_richard_user
+- name: Pushover - Kelsie
+  platform: pushover
+  api_key: !secret pushover_kelsie_api
+  user_key: !secret pushover_kelsie_user

@@ -1,0 +1,9 @@
+# https://www.home-assistant.io/integrations/history/
+
+exclude:
+  domains:
+    - updater
+    - persistent_notification
+  entities:
+    - sensor.worldclock_south_africa
+    - weather.brentwood

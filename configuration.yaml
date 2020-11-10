@@ -30,49 +30,10 @@ sensor:
   #   time_zone: Africa/Johannesburg
   #   name: worldclock.south_africa
 
-notify:
-  # https://www.home-assistant.io/integrations/pushover/
-  - name: Pushover - Richard (Dev)
-    platform: pushover
-    api_key: !secret pushover_richard_api_dev
-    user_key: !secret pushover_richard_user
-  - name: Pushover - Richard
-    platform: pushover
-    api_key: !secret pushover_richard_api
-    user_key: !secret pushover_richard_user
-  - name: Pushover - Kelsie
-    platform: pushover
-    api_key: !secret pushover_kelsie_api
-    user_key: !secret pushover_kelsie_user
+notify: !include config/notify.yaml
+history: !include config/history.yaml
+panel_iframe: !include config/panel_iframe.yaml
 
-# https://www.home-assistant.io/integrations/history/
-history:
-  exclude:
-    domains:
-      - updater
-      - persistent_notification
-    entities:
-      - sensor.worldclock_south_africa
-      - weather.brentwood
-
-# https://www.home-assistant.io/integrations/panel_iframe/
-panel_iframe:
-  home_control:
-    title: 'Home Control'
-    url: 'https://apps.richardn.ca/home-control'
-    icon: mdi:playlist-check
-  # sonarr:
-  #   title: 'Sonarr'
-  #   url: 'http://nas.richardn.ca:8989/'
-  #   icon: mdi:television
-  # radarr:
-  #   title: 'Radarr'
-  #   url: 'http://nas.richardn.ca:7878/'
-  #   icon: mdi:television
-  # grafana:
-  #   title: 'Grafana'
-  #   url: 'http://nas.richardn.ca:3000/'
-  #   icon: mdi:chart-bell-curve-cumulative
 
 # Example configuration.yaml entry
 binary_sensor:
@@ -116,10 +77,5 @@ binary_sensor:
     value_template: '{{ value_json.RfReceived.Data }}'
     off_delay: 120
 
-influxdb:
-  host: !secret influxdb_host
-  port: !secret influxdb_port
-  database: !secret influxdb_db
-  max_retries: 3
-  default_measurement: state
+influxdb: !include config/influxdb.yaml
   
