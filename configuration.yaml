@@ -3,74 +3,26 @@
 default_config:
 api:
 
+# https://www.home-assistant.io/docs/configuration/splitting_configuration/
+
 homeassistant:
   customize: !include customize.yaml
 
-# Text to speech
-tts:
-  - platform: google_translate
 
+tts: !include config/tts.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
-recorder:
-  db_url: !secret mysql_connection
+recorder: !include config/recorder.yaml
+mqtt: !include config/mqtt.yaml
+logger: !include config/logger.yaml
+weather: !include config/weather.yaml
+sabnzbd: !include config/sabnzbd.yaml
+speedtestdotnet: !include config/speedtestdotnet.yaml
+tplink: !include config/tplink.yaml
 
-# https://www.home-assistant.io/docs/mqtt/broker#run-your-own
-mqtt:
-  broker: !secret mqtt_host
-  username: !secret mqtt_user
-  password: !secret mqtt_pass
-  port: !secret mqtt_port
-
-# https://www.home-assistant.io/integrations/logger/
-logger:
-  default: info
-  logs:
-    homeassistant.setup: warning
-    homeassistant.loader: warning
-
-# https://www.home-assistant.io/integrations/weather.darksky/
-weather:
-  - platform: darksky
-    api_key: !secret darksky_apikey
-
-# https://www.home-assistant.io/integrations/sabnzbd/
-sabnzbd:
-  api_key: !secret sabnzbd_apikey
-  host: !secret sabnzbd_host
-  port: !secret sabnzbd_port
-  name: nas_sab
-  sensors:
-    - current_status
-    - speed
-    - queue_size
-    - queue_remaining
-    - disk_size
-    - disk_free
-    - queue_count
-    - day_size
-    - week_size
-    - month_size
-    - total_size
-
-# https://www.home-assistant.io/integrations/speedtestdotnet/
-speedtestdotnet:
-  scan_interval:
-    minutes: 15
-
-# https://www.home-assistant.io/integrations/tplink/
-tplink:
-  discovery: false
-  switch:
-    - host: 192.168.0.34
-    - host: 192.168.0.55
-    - host: 192.168.0.66
-    - host: 192.168.0.78
-    - host: 192.168.0.59
-    - host: 192.168.0.116
 
 sensor:
   # # https://www.home-assistant.io/integrations/worldclock/

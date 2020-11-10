@@ -1,0 +1,10 @@
+# https://www.home-assistant.io/integrations/tplink/
+
+discovery: false
+switch:
+  - host: 192.168.0.34
+  - host: 192.168.0.55
+  - host: 192.168.0.66
+  - host: 192.168.0.78
+  - host: 192.168.0.59
+  - host: 192.168.0.116

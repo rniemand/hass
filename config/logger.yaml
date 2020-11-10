@@ -1,0 +1,6 @@
+# https://www.home-assistant.io/integrations/logger/
+
+default: info
+logs:
+  homeassistant.setup: warning
+  homeassistant.loader: warning
