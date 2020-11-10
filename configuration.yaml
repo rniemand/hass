@@ -165,9 +165,9 @@ binary_sensor:
     off_delay: 120
 
 influxdb:
-  host: 192.168.0.110
-  port: 8086
-  database: hass
+  host: !secret influxdb_host
+  port: !secret influxdb_port
+  database: !secret influxdb_db
   #username: MY_USERNAME
   #password: MY_PASSWORD
   #ssl: true
