@@ -328,3 +328,20 @@
       message: Boys room door is open
       title: 'Door: Boys Room'
   mode: single
+- id: '1604984404930'
+  alias: Erica Test
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: /homeassistant/automations/erica
+    payload: RUN
+  condition:
+  - condition: state
+    entity_id: input_boolean.erica
+    state: 'on'
+  action:
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.living_room_speaker
+      message: May the Force be with you.
+  mode: single
