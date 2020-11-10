@@ -8,13 +8,11 @@ api:
 homeassistant:
   customize: !include customize.yaml
 
-
 tts: !include config/tts.yaml
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
-
 recorder: !include config/recorder.yaml
 mqtt: !include config/mqtt.yaml
 logger: !include config/logger.yaml
@@ -22,60 +20,9 @@ weather: !include config/weather.yaml
 sabnzbd: !include config/sabnzbd.yaml
 speedtestdotnet: !include config/speedtestdotnet.yaml
 tplink: !include config/tplink.yaml
-
-
-sensor:
-  # # https://www.home-assistant.io/integrations/worldclock/
-  # - platform: worldclock
-  #   time_zone: Africa/Johannesburg
-  #   name: worldclock.south_africa
-
 notify: !include config/notify.yaml
 history: !include config/history.yaml
 panel_iframe: !include config/panel_iframe.yaml
-
-
-# Example configuration.yaml entry
-binary_sensor:
-  - platform: mqtt
-    name: "Basement Door"
-    state_topic: "tele/sonoff_rf/RESULT"
-    payload_on: "CD6AC6"
-    device_class: door
-    value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 15
-
-  - platform: mqtt
-    name: "Front Door"
-    state_topic: "tele/sonoff_rf/RESULT"
-    payload_on: "016736"
-    device_class: door
-    value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 60
-
-  - platform: mqtt
-    name: "Back Door"
-    state_topic: "tele/sonoff_rf/RESULT"
-    payload_on: "015836"
-    device_class: door
-    value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 60
-
-  - platform: mqtt
-    name: "Spare Room Door"
-    state_topic: "tele/sonoff_rf/RESULT"
-    payload_on: "BB3AC6"
-    device_class: door
-    value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 15
-
-  - platform: mqtt
-    name: "Downstairs Toilet"
-    state_topic: "tele/sonoff_rf/RESULT"
-    payload_on: "015786"
-    device_class: door
-    value_template: '{{ value_json.RfReceived.Data }}'
-    off_delay: 120
-
+binary_sensor: !include_dir_merge_list config/binary_sensors
 influxdb: !include config/influxdb.yaml
   
