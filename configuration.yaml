@@ -163,3 +163,27 @@ binary_sensor:
     device_class: door
     value_template: '{{ value_json.RfReceived.Data }}'
     off_delay: 120
+
+influxdb:
+  host: 192.168.0.110
+  port: 8086
+  database: hass
+  #username: MY_USERNAME
+  #password: MY_PASSWORD
+  #ssl: true
+  #verify_ssl: true
+  max_retries: 3
+  default_measurement: state
+  # exclude:
+  #   entities:
+  #      - entity.id1
+  #      - entity.id2
+  #   domains:
+  #      - automation
+  # include:
+  #   entities:
+  #      - entity.id3
+  #      - entity.id4
+  # tags:
+  #   instance: prod
+  #   source: hass
