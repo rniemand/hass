@@ -3,3 +3,22 @@ port: !secret influxdb_port
 database: !secret influxdb_db
 max_retries: 3
 default_measurement: state
+# exclude:
+#   entity_globs: "*"
+include:
+  domains:
+    - light
+    - switch
+    - binary_sensor
+component_config_domain:
+  light:
+    ignore_attributes:
+      - supported_features
+component_config_glob:
+  light.*:
+    override_measurement: light
+  switch.*:
+    override_measurement: switch
+  binary_sensor.*:
+    override_measurement: binary_sensor
+    
