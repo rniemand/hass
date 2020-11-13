@@ -10,7 +10,7 @@
       }}'
   action:
   - data: {}
-    entity_id: light.hue_white_lamp_1_2
+    entity_id: light.storage_nook
     service: light.toggle
   mode: single
 - id: '1603234257759'
@@ -25,7 +25,7 @@
       }}'
   action:
   - data: {}
-    entity_id: light.play_area_overhead
+    entity_id: light.play_area_ceiling
     service: light.toggle
   mode: single
 - id: '1603234565632'
