@@ -91,57 +91,6 @@
     entity_id: switch.master_fan
     service: switch.toggle
   mode: single
-- id: '1603493124055'
-  alias: 'RF-01-TL [Light.Toggle] Upstairs: Sam''s Room'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56804''
-      }}'
-  action:
-  - data: {}
-    entity_id: light.sam_s_light
-    service: light.toggle
-  mode: single
-- id: '1603493241122'
-  alias: 'RF-01-TR [Light.Bright] Upstairs: Sam''s Room'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56801''
-      }}'
-  action:
-  - data:
-      brightness_pct: 100
-      entity_id: light.sam_s_light
-      transition: 1
-    entity_id: light.sam_s_light
-    service: light.turn_on
-  mode: single
-- id: '1603493338675'
-  alias: 'RF-01-BL [Light.NightLight] Upstairs: Sam''s Room'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56802''
-      }}'
-  action:
-  - data:
-      brightness_pct: 5
-      entity_id: light.sam_s_light
-      transition: 2
-    entity_id: light.sam_s_light
-    service: light.turn_on
-  mode: single
 - id: '1603736277244'
   alias: 'Pushover <HIGH> Doors: Basement (Ahem)'
   description: ''
@@ -374,4 +323,55 @@
       title: 'Door: Back'
   - service: script.flash_lights_master_bedroom
     data: {}
+  mode: single
+- id: '1605298176837'
+  alias: 'Light: Sam Bedside - Dim (RF)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56802''
+      }}'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 5
+      entity_id: light.sam_s_bedside
+      transition: 2
+    entity_id: light.sam_s_bedside
+  mode: single
+- id: '1605298312196'
+  alias: 'Light: Sam Bedside - Toggle (RF)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56804''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.sam_s_bedside
+  mode: single
+- id: '1605298395686'
+  alias: 'Light: Sam Bedside - Bright (RF)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''E56801''
+      }}'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 100
+      entity_id: light.sam_s_bedside
+      transition: 1
+    entity_id: light.sam_s_bedside
   mode: single

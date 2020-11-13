@@ -1,0 +1,42 @@
+views:
+  - title: Overview
+    path: overview
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.kids_here
+        show_header_toggle: false
+        title: Config
+      - type: entities
+        entities:
+          - entity: automation.pushover_boys_room_door_early_morning
+            name: Boys Room (Early Morning)
+            icon: 'mdi:bunk-bed'
+          - entity: automation.pushover_boys_room_door_afternoon
+            name: Boys Room (Afternoon)
+            icon: 'mdi:bunk-bed'
+          - entity: automation.alert_basement_door_early_morning
+            name: Basement (Early Morning)
+            icon: 'mdi:briefcase-outline'
+          - entity: automation.alert_front_door_early_morning
+            name: Front Door (Early Morning)
+            icon: 'mdi:door'
+          - entity: automation.alert_back_door_early_morning
+            name: Back Door (Early Morning)
+            icon: 'mdi:door-closed'
+        show_header_toggle: false
+        title: Alerting Rules
+      - type: entities
+        entities:
+          - entity: automation.light_sam_bedside_bright_rf
+            name: Bedside Lamp (Bright)
+            icon: 'mdi:brightness-5'
+          - entity: automation.light_sam_bedside_dim_rf
+            name: Bedside Lamp (Night Light)
+            icon: 'mdi:brightness-3'
+          - entity: automation.light_sam_bedside_toggle_rf
+            name: Bedside Lamp (Toggle)
+            icon: 'mdi:toggle-switch'
+        show_header_toggle: false
+        title: Sam's Remote (RF-01)
