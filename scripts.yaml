@@ -1,34 +1,3 @@
-master_bedroom_kill_switch:
-  alias: Master Bedroom Kill Switch
-  mode: single
-  sequence:
-  - device_id: 871374bfc69e46a88c66bb8f5454ded0
-    domain: light
-    entity_id: light.master_bedside
-    type: turn_off
-  - device_id: e071f11c45a8450189f5b5632773b227
-    domain: light
-    entity_id: light.master_lamp
-    type: turn_off
-  - device_id: f59a82c35db049fe9b44f7e4cd874a2e
-    domain: switch
-    entity_id: switch.master_fan
-    type: turn_off
-  - data: {}
-    entity_id: switch.master_bedroom
-    service: switch.turn_off
-master_bedroom_notify_lights:
-  alias: Master Bedroom Notify (Lights)
-  sequence:
-  - service: light.turn_on
-    data:
-      brightness_pct: 100
-    entity_id: light.master_bedroom
-  - delay: '5'
-  - service: light.turn_off
-    data: {}
-    entity_id: light.master_bedroom
-  mode: single
 master_bedroom_fade_on:
   alias: Master Bedroom Fade On
   sequence:
@@ -39,6 +8,24 @@ master_bedroom_fade_on:
     entity_id: light.master_bedroom
   - delay: '30'
   - service: switch.turn_on
+    data: {}
+    entity_id: switch.master_bedroom
+  mode: single
+flash_lights_master_bedroom:
+  alias: Flash Lights (Master Bedroom)
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness_pct: 99
+    entity_id: light.master_bedroom
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.master_bedroom
+  - delay: '6'
+  - service: light.turn_off
+    data: {}
+    entity_id: light.master_bedroom
+  - service: switch.turn_off
     data: {}
     entity_id: switch.master_bedroom
   mode: single
