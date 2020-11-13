@@ -29,48 +29,16 @@ master_bedroom_notify_lights:
     data: {}
     entity_id: light.master_bedroom
   mode: single
-lights_external_on:
-  alias: Lights (External) ON
+master_bedroom_fade_on:
+  alias: Master Bedroom Fade On
   sequence:
   - service: light.turn_on
     data:
-      brightness_pct: 100
-      transition: 5
-    entity_id: light.external_lights
-  mode: single
-lights_ground_tv_dim:
-  alias: Lights (Ground) TV Dim
-  sequence:
-  - service: light.turn_on
-    data:
-      brightness_pct: 30
-    entity_id: light.lounge_floor_lamp
-  - service: light.turn_off
+      brightness_pct: 95
+      transition: 30
+    entity_id: light.master_bedroom
+  - delay: '30'
+  - service: switch.turn_on
     data: {}
-    entity_id: light.lounge_desk_lamp
-  - service: light.turn_off
-    data: {}
-    entity_id: light.dining_area
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.front_door
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.china_cabinet
-  mode: single
-lights_basement_all_off:
-  alias: Lights (Basement) All Off
-  sequence:
-  - service: light.turn_off
-    data: {}
-    entity_id: light.basement_office
-  - service: light.turn_off
-    data: {}
-    entity_id: light.laundry
-  - service: light.turn_off
-    data: {}
-    entity_id: light.play_area_overhead
-  - service: switch.turn_off
-    data: {}
-    entity_id: switch.basement_sensi_pot
+    entity_id: switch.master_bedroom
   mode: single
