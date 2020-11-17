@@ -23,51 +23,6 @@
       message: The basement door is open
       title: 'Door: Basement'
   mode: single
-- id: '1603813904430'
-  alias: 'RF-04-L [Light.Toggle] Basement: Office'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A1''
-      }}'
-  action:
-  - service: light.toggle
-    data: {}
-    entity_id: light.basement_office
-  mode: single
-- id: '1603813978471'
-  alias: 'RF-04-R [Light.Toggle] Basement: Laundry'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A2''
-      }}'
-  action:
-  - service: light.toggle
-    data: {}
-    entity_id: light.laundry
-  mode: single
-- id: '1603814354836'
-  alias: 'RF-04-M [Switch.Toggle] Basement: Sensi Pot'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A8''
-      }}'
-  action:
-  - service: switch.toggle
-    data: {}
-    entity_id: switch.basement_sensi_pot
-  mode: single
 - id: '1605282084623'
   alias: 'Alert: Boys Room Door (Afternoon)'
   description: ''
@@ -372,4 +327,49 @@
   - service: light.toggle
     data: {}
     entity_id: light.storage_nook
+  mode: single
+- id: '1605574149445'
+  alias: 'Remote: Basement Office (Left)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A1''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.office_lamp
+  mode: single
+- id: '1605574198853'
+  alias: 'Remote: Basement Office (Middle)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A8''
+      }}'
+  action:
+  - service: switch.toggle
+    data: {}
+    entity_id: switch.basement_sensi_pot
+  mode: single
+- id: '1605574248758'
+  alias: 'Remote: Basement Office (Right)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''1992A2''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.laundry_overhead
   mode: single
