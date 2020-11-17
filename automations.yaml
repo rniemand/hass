@@ -1,33 +1,3 @@
-- id: '1603234118314'
-  alias: 'RF-03-R [Light.Toggle] Basement: Storage Nook'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB2''
-      }}'
-  action:
-  - data: {}
-    entity_id: light.storage_nook
-    service: light.toggle
-  mode: single
-- id: '1603234257759'
-  alias: 'RF-03-L [Light.Toggle] Basement: Play Area'
-  description: ''
-  trigger:
-  - platform: mqtt
-    topic: tele/sonoff_rf/RESULT
-  condition:
-  - condition: template
-    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB1''
-      }}'
-  action:
-  - data: {}
-    entity_id: light.play_area_ceiling
-    service: light.toggle
-  mode: single
 - id: '1603736277244'
   alias: 'Pushover <HIGH> Doors: Basement (Ahem)'
   description: ''
@@ -372,4 +342,34 @@
   - service: switch.toggle
     data: {}
     entity_id: switch.master_fan
+  mode: single
+- id: '1605574020388'
+  alias: 'Remote: Basement Landing (Left)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB1''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.play_area_ceiling
+  mode: single
+- id: '1605574074821'
+  alias: 'Remote: Basement Landing (Right)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''3EAEB2''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.storage_nook
   mode: single
