@@ -27,16 +27,67 @@ views:
             icon: 'mdi:door-closed'
         show_header_toggle: false
         title: Alerting Rules
+  - title: Sam
+    path: sam
+    badges: []
+    cards:
       - type: entities
         entities:
-          - entity: automation.light_sam_bedside_bright_rf
-            name: Bedside Lamp (Bright)
-            icon: 'mdi:brightness-5'
-          - entity: automation.light_sam_bedside_dim_rf
-            name: Bedside Lamp (Night Light)
-            icon: 'mdi:brightness-3'
-          - entity: automation.light_sam_bedside_toggle_rf
-            name: Bedside Lamp (Toggle)
+          - entity: automation.remote_sam_01_top_left
+            name: Light Toggle (Top Left)
             icon: 'mdi:toggle-switch'
+          - entity: automation.remote_sam_01_top_right
+            name: Light 100% (Top Right)
+            icon: 'mdi:brightness-7'
+          - entity: automation.remote_sam_01_bottom_left
+            name: Light 5% (Bottom Left)
+            icon: 'mdi:brightness-2'
+        title: Bedroom Remote
         show_header_toggle: false
-        title: Sam's Remote (RF-01)
+  - title: Kelsie
+    path: kelsie
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: automation.remote_kelsie_01_a
+            name: (A) Toggle Boys Room
+            icon: 'mdi:bunk-bed'
+          - entity: automation.remote_kelsie_01_b
+            name: (B) Night Ligh - Boys Room
+            icon: 'mdi:brightness-2'
+          - entity: automation.remote_kelsie_01_c
+            name: (C) Master Bedroom Wall
+            icon: 'mdi:light-switch'
+          - entity: automation.remote_kelsie_01_d
+            name: (D) Master Bedroom Fan
+            icon: 'mdi:fan'
+        title: Kelsie's Remote
+        show_header_toggle: false
+  - title: Basement
+    path: basement
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: automation.remote_basement_landing_left
+            name: (Left) Play Room Ceiling
+            icon: 'mdi:gamepad-variant-outline'
+          - entity: automation.remote_basement_landing_right
+            name: (Right) Storage Nook
+            icon: 'mdi:stairs'
+        title: Basement Landing
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: automation.remote_basement_office_left
+            name: (Left) Office Lamp
+            icon: 'mdi:briefcase-outline'
+          - entity: automation.remote_basement_office_middle
+            name: (Middle) Sensi Pot
+            icon: 'mdi:oil-lamp'
+          - entity: automation.remote_basement_office_right
+            name: (Right) Laundry
+            icon: 'mdi:washing-machine'
+        title: Basement Office
+        show_header_toggle: false
