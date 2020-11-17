@@ -222,12 +222,14 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: input_boolean.kids_here
-    state: 'on'
   - condition: time
     after: 00:00:01
     before: 07:00:00
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -255,12 +257,14 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: input_boolean.kids_here
-    state: 'on'
   - condition: time
     after: '11:45:00'
     before: '13:30:00'
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -286,12 +290,14 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: input_boolean.kids_here
-    state: 'on'
   - condition: time
     after: 00:00:01
     before: 07:00:00
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -319,12 +325,14 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: input_boolean.kids_here
-    state: 'on'
   - condition: time
     after: 00:00:01
     before: 07:00:00
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -352,12 +360,14 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: input_boolean.kids_here
-    state: 'on'
   - condition: time
     after: 00:00:01
     before: 07:00:00
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
   action:
   - service: notify.pushover_richard
     data:
