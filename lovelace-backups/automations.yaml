@@ -8,25 +8,29 @@ views:
           - entity: input_boolean.kids_here
         show_header_toggle: false
         title: Config
+  - title: Alerting
+    path: alerting
+    badges: []
+    cards:
       - type: entities
         entities:
-          - entity: automation.pushover_boys_room_door_early_morning
-            name: Boys Room (Early Morning)
-            icon: 'mdi:bunk-bed'
-          - entity: automation.pushover_boys_room_door_afternoon
-            name: Boys Room (Afternoon)
-            icon: 'mdi:bunk-bed'
-          - entity: automation.alert_basement_door_early_morning
-            name: Basement (Early Morning)
-            icon: 'mdi:briefcase-outline'
-          - entity: automation.alert_front_door_early_morning
-            name: Front Door (Early Morning)
-            icon: 'mdi:door'
           - entity: automation.alert_back_door_early_morning
-            name: Back Door (Early Morning)
-            icon: 'mdi:door-closed'
+            name: Back Door - Morning
+            icon: 'mdi:flash'
+          - entity: automation.alert_front_door_early_morning
+            name: Front Door - Morning
+            icon: 'mdi:flash'
+          - entity: automation.alert_basement_door_early_morning
+            name: Basement Door - Morning
+            icon: 'mdi:flash'
+          - entity: automation.alert_boys_room_door_afternoon_nap
+            name: Boys Room - Afternoon
+            icon: 'mdi:cellphone'
+          - entity: automation.alert_boys_room_door_early_morning
+            name: Boys Room - Morning
+            icon: 'mdi:flash'
+        title: Door Alerting (Kids Here)
         show_header_toggle: false
-        title: Alerting Rules
   - title: Sam
     path: sam
     badges: []
