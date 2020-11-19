@@ -1,7 +1,7 @@
 - platform: mqtt
-  name: "Guest Toilet Door"
+  name: "Sam Bedroom Door"
   state_topic: "tele/sonoff_rf/RESULT"
-  payload_on: "015786"
+  payload_on: "EF8EC6"
   device_class: door
   value_template: '{{ value_json.RfReceived.Data }}'
-  off_delay: 120
+  off_delay: 15
