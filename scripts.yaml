@@ -1,20 +1,3 @@
-master_bedroom_fade_on:
-  alias: Master Bedroom Fade On
-  sequence:
-  - service: light.turn_on
-    data:
-      brightness_pct: 5
-    entity_id: light.master_bedroom
-  - service: light.turn_on
-    data:
-      brightness_pct: 95
-      transition: 30
-    entity_id: light.master_bedroom
-  - delay: '30'
-  - service: switch.turn_on
-    data: {}
-    entity_id: switch.master_bedroom
-  mode: single
 flash_lights_master_bedroom:
   alias: Flash Lights (Master Bedroom)
   sequence:
