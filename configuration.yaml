@@ -5,8 +5,13 @@ api:
 
 # https://www.home-assistant.io/docs/configuration/splitting_configuration/
 
+# https://www.home-assistant.io/docs/configuration/basic/
 homeassistant:
   customize: !include customize.yaml
+  time_zone: America/Edmonton
+  latitude: !secret home_location_latitude
+  longitude: !secret home_location_longitude
+  unit_system: metric
 
 tts: !include config/tts.yaml
 group: !include groups.yaml
