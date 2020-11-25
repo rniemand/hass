@@ -214,7 +214,7 @@
     entity_id: light.sam_s_room
   mode: single
 - id: '1605575366377'
-  alias: 'Alert: Boys Room Door (Early Morning)'
+  alias: 'Alert: (Kids) Boys Room Door'
   description: ''
   trigger:
   - platform: state
@@ -222,14 +222,9 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: time
-    after: 00:00:01
-    before: 07:00:00
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.kids_here
+    state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -248,41 +243,8 @@
   - service: script.flash_lights_master_bedroom
     data: {}
   mode: single
-- id: '1605575448927'
-  alias: 'Alert: Boys Room Door (Afternoon Nap)'
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.boys_room_door
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: time
-    after: '11:45:00'
-    before: '13:30:00'
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Room Door
-      message: The boys room door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Room Door
-      message: The boys room door is open
-  mode: single
 - id: '1605575530192'
-  alias: 'Alert: Basement Door (Early Morning)'
+  alias: 'Alert: (Kids) Basement Door'
   description: ''
   trigger:
   - platform: state
@@ -290,14 +252,9 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: time
-    after: 00:00:01
-    before: 07:00:00
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.kids_here
+    state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -317,7 +274,7 @@
     data: {}
   mode: single
 - id: '1605575595342'
-  alias: 'Alert: Front Door (Early Morning)'
+  alias: 'Alert: (Kids) Front Door'
   description: ''
   trigger:
   - platform: state
@@ -325,14 +282,9 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: time
-    after: 00:00:01
-    before: 07:00:00
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.kids_here
+    state: 'on'
   action:
   - service: notify.pushover_richard
     data:
@@ -352,7 +304,7 @@
     data: {}
   mode: single
 - id: '1605575664246'
-  alias: 'Alert: Back Door (Early Morning)'
+  alias: 'Alert: (Kids) Back Door'
   description: ''
   trigger:
   - platform: state
@@ -360,14 +312,9 @@
     from: 'off'
     to: 'on'
   condition:
-  - condition: time
-    after: 00:00:01
-    before: 07:00:00
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
+  - condition: state
+    entity_id: input_boolean.kids_here
+    state: 'on'
   action:
   - service: notify.pushover_richard
     data:
