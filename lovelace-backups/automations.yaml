@@ -6,6 +6,7 @@ views:
       - type: entities
         entities:
           - entity: input_boolean.kids_here
+          - entity: input_datetime.test_date
         show_header_toggle: false
         title: Config
   - title: Alerting
@@ -14,23 +15,30 @@ views:
     cards:
       - type: entities
         entities:
-          - entity: automation.alert_back_door_early_morning
-            name: Back Door - Morning
-            icon: 'mdi:flash'
           - entity: automation.alert_front_door_early_morning
-            name: Front Door - Morning
-            icon: 'mdi:flash'
+            name: Front Door
+            icon: 'mdi:door'
           - entity: automation.alert_basement_door_early_morning
-            name: Basement Door - Morning
-            icon: 'mdi:flash'
-          - entity: automation.alert_boys_room_door_afternoon_nap
-            name: Boys Room - Afternoon
-            icon: 'mdi:cellphone'
+            name: Basement Door
+            icon: 'mdi:briefcase-outline'
+          - entity: automation.alert_back_door_early_morning
+            name: Back Door
+            icon: 'mdi:door-open'
           - entity: automation.alert_boys_room_door_early_morning
-            name: Boys Room - Morning
-            icon: 'mdi:flash'
-        title: Door Alerting (Kids Here)
+            name: Boys Room Door
+            icon: 'mdi:bunk-bed'
+        title: 'Alerting: Doors (Kids Here)'
         show_header_toggle: false
+        state_color: false
+      - type: history-graph
+        entities:
+          - entity: binary_sensor.front_door
+          - entity: binary_sensor.basement_door
+          - entity: binary_sensor.back_door
+          - entity: binary_sensor.boys_room_door
+        hours_to_show: 6
+        refresh_interval: 1
+        title: Doors History
   - title: Sam
     path: sam
     badges: []
