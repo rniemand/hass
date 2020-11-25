@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: "Downstairs Toilet Door"
+  name: "Guest Toilet Door"
   state_topic: "tele/sonoff_rf/RESULT"
   payload_on: "015786"
   device_class: door

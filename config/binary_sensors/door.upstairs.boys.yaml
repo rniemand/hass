@@ -1,5 +1,5 @@
 - platform: mqtt
-  name: "Boys Room Door"
+  name: "Boys Bedroom Door"
   state_topic: "tele/sonoff_rf/RESULT"
   payload_on: "BB3AC6"
   device_class: door

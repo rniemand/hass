@@ -1,6 +1,4 @@
 # https://www.home-assistant.io/docs/mqtt/broker#run-your-own
 
 broker: !secret mqtt_host
-#username: !secret mqtt_user
-#password: !secret mqtt_pass
 port: !secret mqtt_port

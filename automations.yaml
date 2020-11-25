@@ -1,5 +1,5 @@
 - id: '1603736277244'
-  alias: 'Pushover <HIGH> Doors: Basement (Ahem)'
+  alias: 'Alert: Basement Door'
   description: ''
   trigger:
   - platform: state
