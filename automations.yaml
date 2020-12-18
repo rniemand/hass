@@ -342,49 +342,6 @@
   - service: script.flash_lights_master_bedroom
     data: {}
   mode: single
-- id: '1605575664246'
-  alias: Kids - Alert - Back Door (Morning)
-  description: ''
-  trigger:
-  - platform: state
-    from: 'off'
-    to: 'on'
-    entity_id: binary_sensor.back_door
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: time
-      after: 00:00:01
-      before: 08:00:00
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      - sat
-      - sun
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Back Door
-      message: The back door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Back Door
-      message: The back door is open
-  - service: script.flash_lights_master_bedroom
-    data: {}
-  mode: restart
 - id: '1606272130538'
   alias: Kids - Alert - Boys Room Door (Nap Time)
   description: ''
@@ -418,3 +375,74 @@
       title: Boys Bedroom Door
       message: The boys bedroom door is open
   mode: restart
+- id: '1608332045332'
+  alias: 'Remote: Keychains (A)'
+  description: ''
+  trigger:
+  - platform: mqtt
+    topic: tele/sonoff_rf/RESULT
+  condition:
+  - condition: template
+    value_template: '{{ trigger.payload_json[''RfReceived''][''Data''] == ''FF5F71''
+      }}'
+  action:
+  - service: light.toggle
+    data: {}
+    entity_id: light.external_lights
+  mode: single
+- id: '1608332316660'
+  alias: Alert - Back Door (Kids)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.back_door
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.kids_here
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+        after: '21:30'
+        before: '23:59'
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+        after: 00:00
+        before: 08:00
+  action:
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Back Door
+      message: The back door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Back Door
+      message: The back door is open
+  - service: script.flash_lights_master_bedroom
+    data: {}
+  mode: single
