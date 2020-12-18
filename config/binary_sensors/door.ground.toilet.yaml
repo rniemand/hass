@@ -4,4 +4,5 @@
   payload_on: "015786"
   device_class: door
   value_template: '{{ value_json.RfReceived.Data }}'
-  off_delay: 120
+  off_delay: 30
+  
