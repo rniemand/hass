@@ -23,3 +23,17 @@ RF-04:
   left: 1992A1
   middle: 1992A8
   right: 1992A2
+
+# Blue keychain remote
+RF-05:
+  a: FF5F71
+  b: 386608
+  c: FF5F72
+  d: FF5F78
+
+# Black keychain remote
+RF-06:
+  a: FF5F71
+  b: 947CA8
+  c: FF5F72
+  d: FF5F78
