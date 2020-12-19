@@ -1,254 +1,31 @@
-title: Global
 views:
-  - badges:
-      - entity: person.sam
-    cards:
-      - entity: weather.dark_sky
-        type: weather-forecast
-      - type: horizontal-stack
-        cards:
-          - type: button
-            tap_action:
-              action: url
-              url_path: 'http://nas.richardn.ca:8080/'
-            entity: sensor.nas_sab_status
-            name: SABNzbd
-            icon: 'mdi:download'
-          - type: button
-            tap_action:
-              action: url
-              url_path: 'http://nas.richardn.ca:8989/'
-            name: Sonarr
-            entity: sensor.sonarr_queue
-            icon: 'mdi:television'
-          - type: button
-            tap_action:
-              action: url
-              url_path: 'http://nas.richardn.ca:7878/'
-            name: Radarr
-            entity: sensor.speedtest_ping
-            icon: 'mdi:movie-search'
-          - type: button
-            tap_action:
-              action: url
-              url_path: 'http://nas.richardn.ca:3000/login'
-            entity: switch.master_bedroom_light_switch
-            name: Grafana
-            icon: 'mdi:chart-bell-curve-cumulative'
-      - type: horizontal-stack
-        cards:
-          - type: gauge
-            entity: sensor.pixel_4_xl_battery_level
-            min: 0
-            max: 100
-            name: Richard
-            severity:
-              green: 60
-              yellow: 25
-              red: 0
-          - type: gauge
-            entity: sensor.kelsie_phone_battery_level
-            min: 0
-            max: 100
-            name: Kelsie
-            severity:
-              green: 60
-              yellow: 25
-              red: 0
-          - type: gauge
-            entity: sensor.huawei_nxt_l09_battery_level
-            min: 0
-            max: 100
-            name: Sam
-            severity:
-              green: 60
-              yellow: 25
-              red: 0
-      - type: horizontal-stack
-        cards:
-          - type: button
-            tap_action:
-              action: none
-            entity: sensor.pixel_4_xl_phone_state
-            name: Richard
-          - type: button
-            tap_action:
-              action: none
-            entity: sensor.kelsie_phone_phone_state
-            name: Kelsie
-          - type: button
-            tap_action:
-              action: none
-            entity: sensor.huawei_nxt_l09_phone_state
-            name: Sam
-    icon: 'mdi:home'
-    path: home
-    title: Home
-  - title: Richard Phone
-    path: richard-phone
-    icon: 'mdi:cellphone-lock'
-    visible:
-      - user: 1cac9e85f5e94fa182f7e563a646444d
-      - user: dbd218d0489b4ce08306534fff94b257
+  - title: Default
+    path: default
     badges:
       - entity: person.richard_niemand
       - entity: person.kelsie
       - entity: person.sam
     cards:
-      - type: entities
+      - type: glance
         entities:
-          - entity: sensor.richard_phone_public_ip_address
-          - entity: sensor.richard_phone_mobile_tx_gb
-          - entity: sensor.richard_phone_mobile_rx_gb
-        title: Mobile Information
-        state_color: false
-      - type: entities
-        entities:
-          - entity: sensor.pixel_4_xl_wifi_connection
-          - entity: sensor.richard_phone_wifi_ip_address
-          - entity: sensor.richard_phone_total_rx_gb
-          - entity: sensor.richard_phone_total_tx_gb
-          - entity: sensor.richard_phone_wifi_bssid
-          - entity: binary_sensor.richard_phone_wifi_state
-          - entity: sensor.richard_phone_wifi_link_speed
-          - entity: sensor.richard_phone_wifi_frequency
-          - entity: sensor.richard_phone_wifi_signal_strength
-        title: WiFi Information
-      - type: entities
-        entities:
-          - entity: binary_sensor.richard_phone_bluetooth_state
-          - entity: sensor.richard_phone_bluetooth_connection
-        title: Bluetooth
-      - type: entities
-        entities:
-          - entity: sensor.pixel_4_xl_charger_type
-          - entity: binary_sensor.pixel_4_xl_is_charging
-          - entity: sensor.pixel_4_xl_battery_health
-        title: Charging
-      - type: entities
-        entities:
-          - entity: binary_sensor.richard_phone_doze_mode
-          - entity: sensor.richard_phone_detected_activity
-          - entity: sensor.richard_phone_light_sensor
-          - entity: sensor.richard_phone_pressure_sensor
-          - entity: sensor.richard_phone_steps_sensor
-          - entity: sensor.richard_phone_proximity_sensor
-          - entity: sensor.richard_phone_last_reboot
-        title: Sensors
-      - type: entities
-        entities:
-          - entity: sensor.richard_phone_external_storage
-          - entity: sensor.richard_phone_internal_storage
-        title: Storage
-      - type: entities
-        entities:
-          - entity: binary_sensor.richard_phone_music_active
-          - entity: binary_sensor.richard_phone_headphones
-          - entity: sensor.richard_phone_volume_level_music
-          - entity: sensor.richard_phone_audio_mode
-          - entity: sensor.richard_phone_volume_level_alarm
-        title: Music
-      - type: entities
-        entities:
-          - entity: sensor.pixel_4_xl_phone_state
-          - entity: sensor.richard_phone_ringer_mode
-          - entity: binary_sensor.richard_phone_speakerphone
-          - entity: sensor.richard_phone_volume_level_call
-          - entity: sensor.richard_phone_volume_level_ringer
-          - entity: binary_sensor.richard_phone_mic_muted
-        title: Call State
-      - type: entity
-        entity: sensor.pixel_4_xl_geocoded_location
-        name: Location
-      - type: sensor
-        entity: sensor.richard_phone_total_tx_gb
-        graph: line
-      - type: sensor
-        entity: sensor.richard_phone_total_rx_gb
-        graph: line
-      - type: history-graph
-        entities:
-          - entity: sensor.pixel_4_xl_wifi_connection
-        hours_to_show: 6
-        refresh_interval: 0
-      - type: history-graph
-        entities:
-          - entity: sensor.richard_phone_pressure_sensor
-        hours_to_show: 12
-        refresh_interval: 0
-      - type: history-graph
-        entities:
-          - entity: sensor.richard_phone_light_sensor
-        hours_to_show: 12
-        refresh_interval: 0
-      - type: entity
-        entity: sensor.richard_phone_total_rx_gb
-      - type: entity
-        entity: sensor.richard_phone_total_tx_gb
-      - type: entity
-        entity: sensor.richard_phone_mobile_rx_gb
-      - type: entity
-        entity: sensor.richard_phone_mobile_tx_gb
-  - title: Kelsie Phone
-    path: kelsie-phone
-    icon: 'mdi:cellphone-android'
-    visible:
-      - user: 1cac9e85f5e94fa182f7e563a646444d
-      - user: dbd218d0489b4ce08306534fff94b257
-    badges:
-      - entity: person.richard_niemand
-      - entity: person.richard_niemand
-      - entity: person.sam
-    cards:
-      - type: entities
-        entities:
-          - device_tracker.kelsie_phone
-          - sensor.kelsie_phone_battery_health
-          - sensor.kelsie_phone_charger_type
-          - sensor.kelsie_phone_geocoded_location
-          - binary_sensor.kelsie_phone_is_charging
-          - sensor.kelsie_phone_phone_state
-          - sensor.kelsie_phone_wifi_connection
-  - title: Sam Phone
-    path: sam-phone
-    icon: 'mdi:cellphone-basic'
-    badges:
-      - entity: person.richard_niemand
-      - entity: person.kelsie
-      - entity: person.sam
-    cards:
-      - type: entities
-        entities:
-          - device_tracker.huawei_nxt_l09
-          - sensor.sam_phone_audio_mode
-          - sensor.huawei_nxt_l09_battery_health
-          - sensor.huawei_nxt_l09_charger_type
-          - sensor.sam_phone_detected_activity
-          - sensor.sam_phone_external_storage
-          - sensor.huawei_nxt_l09_geocoded_location
-          - binary_sensor.sam_phone_headphones
-          - sensor.sam_phone_internal_storage
-          - binary_sensor.huawei_nxt_l09_is_charging
-          - sensor.sam_phone_last_reboot
-          - sensor.sam_phone_light_sensor
-          - binary_sensor.sam_phone_mic_muted
-          - binary_sensor.sam_phone_music_active
-          - sensor.huawei_nxt_l09_phone_state
-          - sensor.sam_phone_pressure_sensor
-          - sensor.sam_phone_proximity_sensor
-          - sensor.sam_phone_public_ip_address
-          - sensor.sam_phone_ringer_mode
-          - binary_sensor.sam_phone_speakerphone
-          - sensor.sam_phone_steps_sensor
-          - sensor.sam_phone_total_rx_gb
-          - sensor.sam_phone_total_tx_gb
-          - sensor.sam_phone_volume_level_alarm
-          - sensor.sam_phone_volume_level_call
-          - sensor.sam_phone_volume_level_music
-          - sensor.sam_phone_volume_level_ringer
-          - sensor.sam_phone_wifi_bssid
-          - sensor.huawei_nxt_l09_wifi_connection
-          - sensor.sam_phone_wifi_ip_address
-          - sensor.sam_phone_wifi_link_speed
-          - sensor.sam_phone_wifi_signal_strength
-          - binary_sensor.sam_phone_wifi_state
+          - entity: binary_sensor.front_door
+            name: Front
+          - entity: binary_sensor.guest_toilet_door
+            name: Guest Loo
+          - entity: binary_sensor.basement_door
+            name: Basement
+          - entity: binary_sensor.back_door
+            name: Back
+          - entity: binary_sensor.master_bedroom_door
+            name: Master
+          - entity: binary_sensor.bathroom_door
+            name: Bathroom
+          - entity: binary_sensor.sam_bedroom_door
+            name: Sam
+          - entity: binary_sensor.boys_bedroom_door
+            name: Boys
+        show_state: false
+        columns: 4
+        title: Tracked Doors
+        state_color: true
+title: Overview

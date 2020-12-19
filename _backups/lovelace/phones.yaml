@@ -1,0 +1,240 @@
+views:
+  - title: Overview
+    path: overview
+    badges: []
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.richard_pixel4_battery_level
+            min: 0
+            max: 100
+            name: Richard
+            unit: '%'
+            severity:
+              green: 36
+              yellow: 35
+              red: 20
+          - type: gauge
+            entity: sensor.kelsie_samsung_battery_level
+            min: 0
+            max: 100
+            name: Kelsie
+            unit: '%'
+            severity:
+              green: 36
+              yellow: 35
+              red: 20
+          - type: gauge
+            entity: sensor.sam_phone_battery_level
+            min: 0
+            max: 100
+            name: Sam
+            unit: '%'
+            severity:
+              green: 36
+              yellow: 35
+              red: 20
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - entity: sensor.richard_pixel4_phone_state
+                state_not: idle
+            card:
+              type: button
+              tap_action:
+                action: more-info
+              entity: sensor.richard_pixel4_phone_state
+              show_state: true
+              name: Richard's Phone
+              hold_action:
+                action: none
+          - type: conditional
+            conditions:
+              - entity: sensor.kelsie_samsung_phone_state
+                state_not: idle
+            card:
+              type: button
+              tap_action:
+                action: more-info
+              entity: sensor.kelsie_samsung_phone_state
+              show_state: true
+              name: Kelsie's Phone
+              hold_action:
+                action: none
+  - title: Richard
+    path: richard
+    visible:
+      - user: 4e31edcafbf84fcd89536161032e0474
+      - user: ebed161319f54fb6bf2283190213cd2d
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.richard_pixel4
+          - sensor.richard_pixel4_audio_mode
+          - sensor.richard_pixel4_battery_health
+          - sensor.richard_pixel4_battery_state
+          - sensor.richard_pixel4_bluetooth_connection
+          - binary_sensor.richard_pixel4_bluetooth_state
+          - sensor.richard_pixel4_charger_type
+          - sensor.richard_pixel4_detected_activity
+          - binary_sensor.richard_pixel4_device_locked
+          - binary_sensor.richard_pixel4_device_secure
+          - sensor.richard_pixel4_do_not_disturb_sensor
+          - binary_sensor.richard_pixel4_doze_mode
+          - sensor.richard_pixel4_external_storage
+          - sensor.richard_pixel4_geocoded_location
+          - binary_sensor.richard_pixel4_headphones
+          - binary_sensor.richard_pixel4_interactive
+          - sensor.richard_pixel4_internal_storage
+          - binary_sensor.richard_pixel4_is_charging
+          - binary_sensor.richard_pixel4_keyguard_locked
+          - binary_sensor.richard_pixel4_keyguard_secure
+          - sensor.richard_pixel4_last_notification
+          - sensor.richard_pixel4_last_reboot
+          - sensor.richard_pixel4_last_update_trigger
+          - sensor.richard_pixel4_light_sensor
+          - binary_sensor.richard_pixel4_mic_muted
+          - sensor.richard_pixel4_mobile_rx_gb
+          - sensor.richard_pixel4_mobile_tx_gb
+          - binary_sensor.richard_pixel4_music_active
+          - sensor.richard_pixel4_next_alarm
+          - sensor.richard_pixel4_phone_state
+          - binary_sensor.richard_pixel4_power_save
+          - sensor.richard_pixel4_pressure_sensor
+          - sensor.richard_pixel4_proximity_sensor
+          - sensor.richard_pixel4_public_ip_address
+          - sensor.richard_pixel4_ringer_mode
+          - sensor.richard_pixel4_sim_1
+          - sensor.richard_pixel4_sim_2
+          - binary_sensor.richard_pixel4_speakerphone
+          - sensor.richard_pixel4_steps_sensor
+          - sensor.richard_pixel4_total_rx_gb
+          - sensor.richard_pixel4_total_tx_gb
+          - sensor.richard_pixel4_volume_level_alarm
+          - sensor.richard_pixel4_volume_level_call
+          - sensor.richard_pixel4_volume_level_music
+          - sensor.richard_pixel4_volume_level_ringer
+          - sensor.richard_pixel4_wifi_bssid
+          - sensor.richard_pixel4_wifi_connection
+          - sensor.richard_pixel4_wifi_frequency
+          - sensor.richard_pixel4_wifi_ip_address
+          - sensor.richard_pixel4_wifi_link_speed
+          - sensor.richard_pixel4_wifi_signal_strength
+          - binary_sensor.richard_pixel4_wifi_state
+  - title: Kelsie
+    path: kelsie
+    visible:
+      - user: 4e31edcafbf84fcd89536161032e0474
+      - user: ebed161319f54fb6bf2283190213cd2d
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.kelsie_samsung
+          - sensor.kelsie_samsung_audio_mode
+          - sensor.kelsie_samsung_battery_health
+          - sensor.kelsie_samsung_battery_state
+          - sensor.kelsie_samsung_bluetooth_connection
+          - binary_sensor.kelsie_samsung_bluetooth_state
+          - sensor.kelsie_samsung_charger_type
+          - sensor.kelsie_samsung_current_time_zone
+          - sensor.kelsie_samsung_current_version
+          - sensor.kelsie_samsung_detected_activity
+          - binary_sensor.kelsie_samsung_device_locked
+          - binary_sensor.kelsie_samsung_device_secure
+          - sensor.kelsie_samsung_do_not_disturb_sensor
+          - binary_sensor.kelsie_samsung_doze_mode
+          - sensor.kelsie_samsung_external_storage
+          - sensor.kelsie_samsung_geocoded_location
+          - binary_sensor.kelsie_samsung_headphones
+          - binary_sensor.kelsie_samsung_interactive
+          - sensor.kelsie_samsung_internal_storage
+          - binary_sensor.kelsie_samsung_is_charging
+          - binary_sensor.kelsie_samsung_keyguard_locked
+          - binary_sensor.kelsie_samsung_keyguard_secure
+          - sensor.kelsie_samsung_last_reboot
+          - sensor.kelsie_samsung_last_update_trigger
+          - sensor.kelsie_samsung_light_sensor
+          - binary_sensor.kelsie_samsung_mic_muted
+          - binary_sensor.kelsie_samsung_music_active
+          - sensor.kelsie_samsung_next_alarm
+          - sensor.kelsie_samsung_phone_state
+          - binary_sensor.kelsie_samsung_power_save
+          - sensor.kelsie_samsung_proximity_sensor
+          - sensor.kelsie_samsung_public_ip_address
+          - sensor.kelsie_samsung_ringer_mode
+          - sensor.kelsie_samsung_sim_1
+          - sensor.kelsie_samsung_sim_2
+          - binary_sensor.kelsie_samsung_speakerphone
+          - sensor.kelsie_samsung_steps_sensor
+          - sensor.kelsie_samsung_total_rx_gb
+          - sensor.kelsie_samsung_total_tx_gb
+          - sensor.kelsie_samsung_volume_level_alarm
+          - sensor.kelsie_samsung_volume_level_call
+          - sensor.kelsie_samsung_volume_level_music
+          - sensor.kelsie_samsung_volume_level_ringer
+          - sensor.kelsie_samsung_wifi_bssid
+          - sensor.kelsie_samsung_wifi_connection
+          - sensor.kelsie_samsung_wifi_frequency
+          - sensor.kelsie_samsung_wifi_ip_address
+          - sensor.kelsie_samsung_wifi_link_speed
+          - sensor.kelsie_samsung_wifi_signal_strength
+          - binary_sensor.kelsie_samsung_wifi_state
+  - title: Sam
+    path: sam
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - device_tracker.sam_phone
+          - sensor.sam_phone_audio_mode
+          - sensor.sam_phone_battery_health
+          - sensor.sam_phone_battery_state
+          - sensor.sam_phone_bluetooth_connection
+          - binary_sensor.sam_phone_bluetooth_state
+          - sensor.sam_phone_charger_type
+          - sensor.sam_phone_detected_activity
+          - binary_sensor.sam_phone_device_locked
+          - binary_sensor.sam_phone_device_secure
+          - binary_sensor.sam_phone_doze_mode
+          - sensor.sam_phone_external_storage
+          - sensor.sam_phone_geocoded_location
+          - binary_sensor.sam_phone_headphones
+          - binary_sensor.sam_phone_interactive
+          - sensor.sam_phone_internal_storage
+          - binary_sensor.sam_phone_is_charging
+          - binary_sensor.sam_phone_keyguard_locked
+          - binary_sensor.sam_phone_keyguard_secure
+          - sensor.sam_phone_last_notification
+          - sensor.sam_phone_last_reboot
+          - sensor.sam_phone_last_update_trigger
+          - sensor.sam_phone_light_sensor
+          - binary_sensor.sam_phone_mic_muted
+          - binary_sensor.sam_phone_music_active
+          - sensor.sam_phone_next_alarm
+          - sensor.sam_phone_phone_state
+          - binary_sensor.sam_phone_power_save
+          - sensor.sam_phone_pressure_sensor
+          - sensor.sam_phone_proximity_sensor
+          - sensor.sam_phone_public_ip_address
+          - sensor.sam_phone_ringer_mode
+          - sensor.sam_phone_sim_1
+          - sensor.sam_phone_sim_2
+          - binary_sensor.sam_phone_speakerphone
+          - sensor.sam_phone_steps_sensor
+          - sensor.sam_phone_total_rx_gb
+          - sensor.sam_phone_total_tx_gb
+          - sensor.sam_phone_volume_level_alarm
+          - sensor.sam_phone_volume_level_call
+          - sensor.sam_phone_volume_level_music
+          - sensor.sam_phone_volume_level_ringer
+          - sensor.sam_phone_wifi_bssid
+          - sensor.sam_phone_wifi_connection
+          - sensor.sam_phone_wifi_frequency
+          - sensor.sam_phone_wifi_ip_address
+          - sensor.sam_phone_wifi_link_speed
+          - sensor.sam_phone_wifi_signal_strength
+          - binary_sensor.sam_phone_wifi_state

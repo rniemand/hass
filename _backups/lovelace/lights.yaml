@@ -48,15 +48,14 @@ views:
               - type: button
                 tap_action:
                   action: toggle
-                entity: light.external_front
-                icon: 'mdi:coach-lamp'
-                name: Ext. Front
+                entity: switch.china_cabinate
+                icon: 'mdi:coffee'
               - type: button
                 tap_action:
                   action: toggle
-                entity: light.external_back
-                icon: 'mdi:outdoor-lamp'
-                name: Ext. Back
+                entity: switch.front_door
+                icon: 'mdi:light-switch'
+                name: Kitchen
           - type: horizontal-stack
             cards:
               - type: light
@@ -71,19 +70,6 @@ views:
                 entity: light.dining_lamp
                 icon: 'mdi:food'
                 name: Dining Lamp
-          - type: horizontal-stack
-            cards:
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: switch.china_cabinate
-                icon: 'mdi:coffee'
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: switch.front_door
-                icon: 'mdi:light-switch'
-                name: Kitchen Wall
       - type: vertical-stack
         title: Master Bedroom
         cards:
