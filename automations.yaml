@@ -219,8 +219,44 @@
       message: Hello World 2
       cache: false
   mode: single
-- id: '1608680419217'
-  alias: 'Kids: (Alert) Bedroom Door'
+- id: '1608680666885'
+  alias: 'Kids: (Alert) Basement Door'
+  description: ''
+  trigger:
+  - platform: state
+    from: 'off'
+    to: 'on'
+    entity_id: binary_sensor.basement_door
+  condition:
+  - condition: state
+    state: 'on'
+    entity_id: input_boolean.monitor_basement_door
+  action:
+  - service: mqtt.publish
+    data:
+      topic: lights/flash/master
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: The basement door is open
+      cache: false
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The basement door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The basement door is open
+  mode: single
+- id: '1608680942953'
+  alias: 'Kids: (Alert) Boys Room Door'
   description: ''
   trigger:
   - platform: state
@@ -255,14 +291,14 @@
       title: Basement Door
       message: The boys room door is open
   mode: single
-- id: '1608680666885'
-  alias: 'Kids: (Alert) Basement Door'
+- id: '1608681011645'
+  alias: 'Kids: (Alert) Ericas Room Door'
   description: ''
   trigger:
   - platform: state
     from: 'off'
     to: 'on'
-    entity_id: binary_sensor.basement_door
+    entity_id: binary_sensor.sam_bedroom_door
   condition:
   - condition: state
     entity_id: input_boolean.monitor_kids_doors
@@ -274,7 +310,7 @@
   - service: tts.google_translate_say
     data:
       entity_id: media_player.bedroom_speaker
-      message: The basement door is open
+      message: Ericas door is open
       cache: false
   - service: notify.pushover_richard
     data:
@@ -282,12 +318,84 @@
         priority: 1
         sound: tugboat
       title: Basement Door
-      message: The basement door is open
+      message: Ericas door is open
   - service: notify.pushover_kelsie
     data:
       data:
         priority: 1
         sound: tugboat
       title: Basement Door
-      message: The basement door is open
+      message: Ericas door is open
+  mode: single
+- id: '1608681064979'
+  alias: 'Kids: (Alert) Back Door'
+  description: ''
+  trigger:
+  - platform: state
+    from: 'off'
+    to: 'on'
+    entity_id: binary_sensor.back_door
+  condition:
+  - condition: state
+    entity_id: input_boolean.monitor_kids_doors
+    state: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: lights/flash/master
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: The back door is open
+      cache: false
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The back door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The back door is open
+  mode: single
+- id: '1608681105604'
+  alias: 'Kids: (Alert) Front Door'
+  description: ''
+  trigger:
+  - platform: state
+    from: 'off'
+    to: 'on'
+    entity_id: binary_sensor.front_door
+  condition:
+  - condition: state
+    entity_id: input_boolean.monitor_kids_doors
+    state: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: lights/flash/master
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: The front door is open
+      cache: false
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The front door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The front door is open
   mode: single
