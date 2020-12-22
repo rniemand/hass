@@ -1,28 +1,3 @@
-- id: '1603736277244'
-  alias: 'Alert: (Always) Basement Door'
-  description: ''
-  trigger:
-  - platform: state
-    from: 'off'
-    to: 'on'
-    entity_id: binary_sensor.basement_door
-  condition: []
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      message: The basement door is open
-      title: 'Door: Basement'
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      message: The basement door is open
-      title: 'Door: Basement'
-  mode: single
 - id: '1605573563132'
   alias: 'Remote: Kelsie 01 (A)'
   description: ''
@@ -213,168 +188,6 @@
     data: {}
     entity_id: light.sam_s_room
   mode: single
-- id: '1605575366377'
-  alias: Kids - Alert - Boys Room Door (Morning)
-  description: ''
-  trigger:
-  - platform: state
-    from: 'off'
-    to: 'on'
-    entity_id: binary_sensor.boys_bedroom_door
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: time
-      after: 00:00:01
-      before: 08:00:00
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      - sat
-      - sun
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Room Door
-      message: The boys room door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Room Door
-      message: The boys room door is open
-  - service: script.flash_lights_master_bedroom
-    data: {}
-  mode: single
-- id: '1605575530192'
-  alias: Kids - Alert - Basement Door (Morning)
-  description: ''
-  trigger:
-  - platform: state
-    from: 'off'
-    to: 'on'
-    entity_id: binary_sensor.basement_door
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: time
-      after: 00:00:01
-      before: 07:30:00
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      - sat
-      - sun
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
-      message: The basement door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
-      message: The basement door is open
-  - service: script.flash_lights_master_bedroom
-    data: {}
-  mode: single
-- id: '1605575595342'
-  alias: Kids - Alert - Front Door (Morning)
-  description: ''
-  trigger:
-  - platform: state
-    from: 'off'
-    to: 'on'
-    entity_id: binary_sensor.front_door
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: time
-      after: 00:00:01
-      before: 08:00:00
-      weekday:
-      - mon
-      - tue
-      - wed
-      - thu
-      - fri
-      - sat
-      - sun
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Front Door
-      message: The front door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Front Door
-      message: The front door is open
-  - service: script.flash_lights_master_bedroom
-    data: {}
-  mode: single
-- id: '1606272130538'
-  alias: Kids - Alert - Boys Room Door (Nap Time)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.boys_bedroom_door
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: state
-      entity_id: input_boolean.nap_time
-      state: 'on'
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Bedroom Door
-      message: The boys bedroom door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Boys Bedroom Door
-      message: The boys bedroom door is open
-  mode: restart
 - id: '1608332045332'
   alias: 'Remote: Keychains (A)'
   description: ''
@@ -389,62 +202,6 @@
   - service: light.toggle
     data: {}
     entity_id: light.external_lights
-  mode: single
-- id: '1608332316660'
-  alias: Alert - Back Door (Kids)
-  description: ''
-  trigger:
-  - platform: state
-    entity_id: binary_sensor.back_door
-    from: 'off'
-    to: 'on'
-  condition:
-  - condition: and
-    conditions:
-    - condition: state
-      entity_id: input_boolean.kids_here
-      state: 'on'
-    - condition: or
-      conditions:
-      - condition: time
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-        after: '21:30'
-        before: '23:59'
-      - condition: time
-        weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-        - sat
-        - sun
-        after: 00:00
-        before: 08:00
-  action:
-  - service: notify.pushover_richard
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Back Door
-      message: The back door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Back Door
-      message: The back door is open
-  - service: script.flash_lights_master_bedroom
-    data: {}
   mode: single
 - id: '1608598270136'
   alias: Simple Testing
@@ -461,4 +218,76 @@
       entity_id: media_player.bedroom_speaker
       message: Hello World 2
       cache: false
+  mode: single
+- id: '1608680419217'
+  alias: 'Kids: (Alert) Bedroom Door'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.boys_bedroom_door
+    from: 'off'
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: input_boolean.monitor_kids_doors
+    state: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: lights/flash/master
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: The boys room door is open
+      cache: false
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The boys room door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The boys room door is open
+  mode: single
+- id: '1608680666885'
+  alias: 'Kids: (Alert) Basement Door'
+  description: ''
+  trigger:
+  - platform: state
+    from: 'off'
+    to: 'on'
+    entity_id: binary_sensor.basement_door
+  condition:
+  - condition: state
+    entity_id: input_boolean.monitor_kids_doors
+    state: 'on'
+  action:
+  - service: mqtt.publish
+    data:
+      topic: lights/flash/master
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: The basement door is open
+      cache: false
+  - service: notify.pushover_richard
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The basement door is open
+  - service: notify.pushover_kelsie
+    data:
+      data:
+        priority: 1
+        sound: tugboat
+      title: Basement Door
+      message: The basement door is open
   mode: single
