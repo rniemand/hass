@@ -446,3 +446,19 @@
   - service: script.flash_lights_master_bedroom
     data: {}
   mode: single
+- id: '1608598270136'
+  alias: Simple Testing
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.updater
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.bedroom_speaker
+      message: Hello World 2
+      cache: false
+  mode: single

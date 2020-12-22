@@ -31,3 +31,5 @@ panel_iframe: !include config/panel_iframe.yaml
 binary_sensor: !include_dir_merge_list config/binary_sensors
 # influxdb: !include config/influxdb.yaml
   
+mqtt_eventstream:
+  publish_topic: hass/stream/brentwood
