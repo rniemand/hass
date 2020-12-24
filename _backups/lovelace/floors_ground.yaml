@@ -1,0 +1,223 @@
+views:
+  - title: Overview
+    path: overview
+    icon: 'mdi:information-outline'
+    badges:
+      - entity: person.richard_niemand
+      - entity: person.kelsie
+      - entity: person.sam
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.monitor_kids_doors
+          - entity: input_boolean.monitor_basement_door
+        title: Monitoring
+        show_header_toggle: false
+        state_color: true
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.front_door
+                hold_action:
+                  action: none
+                name: Front
+                show_state: true
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.back_door
+                name: Back
+                hold_action:
+                  action: none
+                show_state: true
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.guest_toilet_door
+                name: Toilet
+                show_state: true
+                hold_action:
+                  action: none
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.basement_door
+                name: Basement
+                show_state: true
+                hold_action:
+                  action: none
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.front_door
+                name: Front
+              - entity: binary_sensor.back_door
+                name: Back
+              - entity: binary_sensor.guest_toilet_door
+                name: Toilet
+              - entity: binary_sensor.basement_door
+                name: Basement
+            hours_to_show: 1
+            refresh_interval: 30
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.front_door
+                name: Front Light
+                icon: 'mdi:light-switch'
+              - type: light
+                entity: light.external_lights
+                name: External
+                icon: 'mdi:home'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.china_cabinate
+                name: Tree
+                icon: 'mdi:pine-tree'
+                show_state: true
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.dining_lamp
+                name: Dining Lamp
+                icon: 'mdi:food'
+              - type: light
+                entity: light.lounge_lamp
+                name: T.V. Lamp
+                icon: 'mdi:television'
+          - type: history-graph
+            entities:
+              - entity: switch.front_door
+                name: Front Light
+              - entity: light.external_lights
+                name: External
+              - entity: switch.china_cabinate
+                name: Tree
+              - entity: light.dining_lamp
+                name: Dining Lamp
+              - entity: light.lounge_lamp
+                name: T.V. Lamp
+            hours_to_show: 2
+            refresh_interval: 30
+  - title: Kitchen
+    path: kitchen
+    icon: 'mdi:stove'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.front_door
+                icon: 'mdi:light-switch'
+                name: Front Light
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: binary_sensor.front_door
+                show_state: true
+                name: Front Door
+              - type: light
+                entity: light.external_lights
+                icon: 'mdi:home'
+                name: External
+          - type: history-graph
+            entities:
+              - entity: switch.front_door
+                name: Front Light
+              - entity: binary_sensor.front_door
+                name: Front Door
+              - entity: light.external_lights
+                name: External
+            hours_to_show: 1
+            refresh_interval: 30
+  - title: Dining Area
+    path: dining-area
+    icon: 'mdi:food-fork-drink'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.dining_lamp
+                name: Dining Lamp
+                icon: 'mdi:food'
+          - type: history-graph
+            entities:
+              - entity: light.dining_lamp
+            hours_to_show: 1
+            refresh_interval: 30
+  - title: Lounge
+    path: lounge
+    icon: 'mdi:television'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: switch.tv_plug
+                icon: 'mdi:television'
+                hold_action:
+                  action: toggle
+                name: TV Plug
+              - type: light
+                entity: light.lounge_lamp
+                name: Lounge Lamp
+                icon: 'mdi:floor-lamp'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: binary_sensor.back_door
+                name: Back Door
+                show_state: true
+          - type: history-graph
+            entities:
+              - entity: switch.tv_plug
+                name: TV Plug
+              - entity: light.lounge_lamp
+                name: Lounge Lamp
+              - entity: binary_sensor.back_door
+                name: Back Door
+            hours_to_show: 1
+            refresh_interval: 30
+  - title: Toilet
+    path: toilet
+    icon: 'mdi:toilet'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.guest_toilet_door
+                name: Toilet Door
+                hold_action:
+                  action: none
+                show_state: true
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.guest_toilet_door
+                name: Toilet Door
+            refresh_interval: 30
+            hours_to_show: 241
+title: Ground Floor

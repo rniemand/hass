@@ -6,26 +6,48 @@ views:
       - entity: person.kelsie
       - entity: person.sam
     cards:
-      - type: glance
-        entities:
-          - entity: binary_sensor.front_door
-            name: Front
-          - entity: binary_sensor.guest_toilet_door
-            name: Guest Loo
-          - entity: binary_sensor.basement_door
-            name: Basement
-          - entity: binary_sensor.back_door
-            name: Back
-          - entity: binary_sensor.master_bedroom_door
-            name: Master
-          - entity: binary_sensor.bathroom_door
-            name: Bathroom
-          - entity: binary_sensor.sam_bedroom_door
-            name: Sam
-          - entity: binary_sensor.boys_bedroom_door
-            name: Boys
-        show_state: false
-        columns: 4
-        title: Tracked Doors
-        state_color: true
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                min: 0
+                max: 100
+                entity: sensor.richard_pixel4_battery_level
+                name: Richard
+                unit: '%'
+                severity:
+                  green: 51
+                  yellow: 50
+                  red: 20
+              - type: gauge
+                min: 0
+                max: 100
+                entity: sensor.kelsie_samsung_battery_level
+                name: Kelsie
+                unit: '%'
+                severity:
+                  green: 51
+                  yellow: 50
+                  red: 20
+              - type: gauge
+                entity: sensor.sam_phone_battery_level
+                min: 0
+                max: 100
+                name: Sam
+                unit: '%'
+                severity:
+                  green: 51
+                  yellow: 50
+                  red: 20
+          - type: history-graph
+            entities:
+              - entity: sensor.richard_pixel4_battery_level
+                name: Richard
+              - entity: sensor.kelsie_samsung_battery_level
+                name: Kelsie
+              - entity: sensor.sam_phone_battery_level
+                name: Sam
+            hours_to_show: 4
+            refresh_interval: 30
 title: Overview

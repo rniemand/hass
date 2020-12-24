@@ -1,0 +1,230 @@
+views:
+  - title: Overview
+    path: overview
+    icon: 'mdi:information-outline'
+    badges:
+      - entity: person.richard_niemand
+      - entity: person.kelsie
+      - entity: person.sam
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.monitor_kids_doors
+          - entity: input_boolean.monitor_basement_door
+        title: Monitoring
+        state_color: true
+        show_header_toggle: false
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.master_bedroom
+                name: Master Hue
+                icon: 'mdi:bed-king-outline'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_bedroom
+                name: Master Wall
+                icon: 'mdi:light-switch'
+                show_state: true
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_fan
+                show_state: true
+                name: Master Fan
+                icon: 'mdi:fan'
+          - type: history-graph
+            entities:
+              - entity: light.master_bedroom
+                name: Master Hue
+              - entity: switch.master_bedroom
+                name: Master Wall
+              - entity: switch.master_fan
+                name: Master Fan
+            hours_to_show: 2
+            refresh_interval: 30
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.master_bedroom_door
+                name: Master
+                show_state: true
+                hold_action:
+                  action: none
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.bathroom_door
+                name: Bathroom
+                show_state: true
+                hold_action:
+                  action: none
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.boys_bedroom_door
+                name: Boys
+                show_state: true
+                hold_action:
+                  action: none
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.sam_bedroom_door
+                name: Erica
+                hold_action:
+                  action: none
+                show_state: true
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.master_bedroom_door
+                name: Master
+              - entity: binary_sensor.bathroom_door
+                name: Bathroom
+              - entity: binary_sensor.boys_bedroom_door
+                name: Boys
+              - entity: binary_sensor.sam_bedroom_door
+                name: Erica
+            hours_to_show: 2
+            refresh_interval: 30
+  - title: Master
+    path: master
+    icon: 'mdi:bed-king'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.master_bedroom
+                name: Hue Lights
+                icon: 'mdi:floor-lamp'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_bedroom
+                name: Master Wall
+                icon: 'mdi:light-switch'
+                show_state: true
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: switch.master_fan
+                name: Master Fan
+                icon: 'mdi:fan'
+                show_state: true
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.master_bedroom_door
+                name: Master Door
+                show_state: true
+                hold_action:
+                  action: none
+              - type: light
+                entity: light.master_bedside
+                icon: 'mdi:lamp'
+                name: Bedside
+              - type: light
+                entity: light.master_lamp
+                icon: 'mdi:floor-lamp'
+                name: Floor Lamp
+          - type: history-graph
+            entities:
+              - entity: switch.master_bedroom
+                name: Wall Switch
+              - entity: switch.master_fan
+                name: Fan
+              - entity: binary_sensor.master_bedroom_door
+                name: Door
+              - entity: light.master_bedside
+                name: Bedside
+              - entity: light.master_lamp
+                name: Floor Lamp
+            hours_to_show: 2
+            refresh_interval: 30
+      - type: media-control
+        entity: media_player.bedroom_speaker
+  - title: Boys Room
+    path: boys-room
+    icon: 'mdi:bunk-bed'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.boys_bedroom_door
+                hold_action:
+                  action: none
+                show_state: true
+                name: Boys Room
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.boys_bedroom_door
+                name: Boys Room
+            hours_to_show: 2
+            refresh_interval: 30
+  - title: Ericas Room
+    path: ericas-room
+    icon: 'mdi:baby-carriage'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.sam_bedroom_door
+                name: Erica Door
+                show_state: true
+                hold_action:
+                  action: none
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.sam_bedroom_door
+                name: Erica Door
+            hours_to_show: 2
+            refresh_interval: 30
+  - title: Bathroom
+    path: bathroom
+    icon: 'mdi:toilet'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: binary_sensor.bathroom_door
+                name: Bathroom
+                show_state: true
+          - type: history-graph
+            entities:
+              - entity: binary_sensor.bathroom_door
+                name: Bathroom
+            hours_to_show: 2
+            refresh_interval: 30
+  - title: Stairs
+    path: stairs
+    icon: 'mdi:stairs'
+    badges: []
+    cards: []
+title: Upstairs

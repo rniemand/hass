@@ -1,0 +1,172 @@
+views:
+  - title: Overview
+    path: overview
+    icon: 'mdi:information-outline'
+    badges:
+      - entity: person.richard_niemand
+      - entity: person.kelsie
+      - entity: person.sam
+    cards:
+      - type: entities
+        entities:
+          - entity: input_boolean.monitor_basement_door
+        show_header_toggle: false
+        state_color: true
+        title: Monitoring
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.storage_nook
+                icon: 'mdi:stairs'
+              - type: light
+                entity: light.sam_s_bedside
+                icon: 'mdi:bed'
+                name: Sam's Light
+              - type: light
+                entity: light.office_lamp
+                icon: 'mdi:briefcase-outline'
+                name: Office
+          - type: history-graph
+            entities:
+              - entity: light.storage_nook
+              - entity: light.sam_s_bedside
+              - entity: light.office_lamp
+            hours_to_show: 1
+            refresh_interval: 30
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.play_area_ceiling
+                icon: 'mdi:ceiling-light'
+                name: Sam's Ceiling
+              - type: light
+                entity: light.laundry_overhead
+                icon: 'mdi:washing-machine'
+                name: Laundry
+              - type: button
+                tap_action:
+                  action: more-info
+                entity: binary_sensor.basement_door
+                name: Basement Door
+                show_state: true
+                hold_action:
+                  action: none
+          - type: history-graph
+            entities:
+              - entity: light.play_area_ceiling
+                name: Sam's Ceiling
+              - entity: light.laundry_overhead
+                name: Laundry
+              - entity: binary_sensor.basement_door
+            hours_to_show: 1
+            refresh_interval: 30
+  - title: Stairs
+    path: stairs
+    icon: 'mdi:stairs'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.storage_nook
+                name: Storage Nook
+                icon: 'mdi:stairs'
+              - type: button
+                tap_action:
+                  action: toggle
+                entity: binary_sensor.basement_door
+                show_state: true
+                name: Basement Door
+          - type: history-graph
+            entities:
+              - entity: light.storage_nook
+                name: Storage Nook
+              - entity: binary_sensor.basement_door
+                name: Basement Door
+            hours_to_show: 1
+            refresh_interval: 30
+  - title: Sams Room
+    path: sams-room
+    icon: 'mdi:bed'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.sam_s_bedside
+                name: Bedside
+                icon: 'mdi:bed'
+              - type: light
+                entity: light.play_area_ceiling
+                name: Overhead
+                icon: 'mdi:ceiling-light'
+          - type: history-graph
+            entities:
+              - entity: light.sam_s_bedside
+                name: Bedside
+              - entity: light.play_area_ceiling
+                name: Overhead
+              - entity: media_player.sams_room_speaker
+                name: Google Mini
+            hours_to_show: 1
+            refresh_interval: 30
+      - type: media-control
+        entity: media_player.sams_room_speaker
+  - title: Office
+    path: office
+    icon: 'mdi:briefcase-outline'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.office_lamp
+                name: Office Lamp
+                icon: 'mdi:briefcase-outline'
+          - type: history-graph
+            entities:
+              - entity: light.office_lamp
+                name: Office Lamp
+            hours_to_show: 1
+            refresh_interval: 30
+      - type: vertical-stack
+        cards:
+          - type: entities
+            entities:
+              - entity: sensor.canon_mx490_series
+              - entity: sensor.canon_mx490_series_black
+              - entity: sensor.canon_mx490_series_color
+          - type: history-graph
+            entities:
+              - entity: sensor.canon_mx490_series
+            hours_to_show: 3
+            refresh_interval: 30
+  - title: Laundry
+    path: laundry
+    icon: 'mdi:washing-machine'
+    badges: []
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: light
+                entity: light.laundry_overhead
+                name: Laundry
+                icon: 'mdi:washing-machine'
+          - type: history-graph
+            entities:
+              - entity: light.laundry_overhead
+            hours_to_show: 1
+            refresh_interval: 30
+title: Basement

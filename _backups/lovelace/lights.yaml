@@ -36,6 +36,10 @@ views:
                 entity: switch.basement_sensi_pot
                 name: Scentsy Pot
                 icon: 'mdi:oil-lamp'
+              - type: light
+                entity: light.sam_s_room
+                name: Sams Room
+                icon: 'mdi:bed'
       - type: vertical-stack
         title: Ground Floor Lights
         cards:
@@ -62,10 +66,6 @@ views:
                 entity: light.lounge_lamp
                 icon: 'mdi:television'
                 name: T.V. Lamp
-              - type: light
-                entity: light.lounge_desk_lamp
-                icon: 'mdi:desk'
-                name: Desk Lamp
               - type: light
                 entity: light.dining_lamp
                 icon: 'mdi:food'
@@ -102,37 +102,6 @@ views:
                 entity: switch.master_fan
                 icon: 'mdi:fan'
                 name: Master Fan
-      - type: vertical-stack
-        title: Kids Room Lights
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: light
-                entity: light.sam_s_bedside
-                icon: 'mdi:bed'
-                name: Sam's Room
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: light.living_room
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: light.living_room
-          - type: horizontal-stack
-            cards:
-              - type: light
-                entity: light.boys_room_lamp
-                icon: 'mdi:bunk-bed'
-                name: Boy's Room
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: light.living_room
-              - type: button
-                tap_action:
-                  action: toggle
-                entity: light.living_room
   - title: Basement
     path: basement
     icon: 'mdi:home-floor-b'
