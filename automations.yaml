@@ -247,13 +247,6 @@
         sound: tugboat
       title: Basement Door
       message: The basement door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
-      message: The basement door is open
   mode: single
 - id: '1608680942953'
   alias: 'Kids: (Alert) Boys Room Door'
@@ -281,14 +274,7 @@
       data:
         priority: 1
         sound: tugboat
-      title: Basement Door
-      message: The boys room door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
+      title: Boys Door
       message: The boys room door is open
   mode: single
 - id: '1608681011645'
@@ -317,14 +303,7 @@
       data:
         priority: 1
         sound: tugboat
-      title: Basement Door
-      message: Ericas door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
+      title: Ericas Door
       message: Ericas door is open
   mode: single
 - id: '1608681064979'
@@ -353,14 +332,7 @@
       data:
         priority: 1
         sound: tugboat
-      title: Basement Door
-      message: The back door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
+      title: Back Door
       message: The back door is open
   mode: single
 - id: '1608681105604'
@@ -389,13 +361,6 @@
       data:
         priority: 1
         sound: tugboat
-      title: Basement Door
-      message: The front door is open
-  - service: notify.pushover_kelsie
-    data:
-      data:
-        priority: 1
-        sound: tugboat
-      title: Basement Door
+      title: Front Door
       message: The front door is open
   mode: single
